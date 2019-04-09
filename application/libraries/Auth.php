@@ -16,6 +16,13 @@ class Auth
       }
       return true;
    }
+
+   function is_login_mitra(){
+      if($this->ci->session->userdata('id_mitra') == '' && $this->ci->session->userdata('email_mitra') == ''){
+         return false;
+      }
+      return true;
+   }
    
    function restrict(){
       if($this->is_login_agen() == false){

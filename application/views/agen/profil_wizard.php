@@ -40,11 +40,11 @@
                 <h3>Info Rekening</h3>
                 <section>
                     <label for="name">Nama Bank</label>
-                    <input name="bank" type="text" class="form-control">
+                    <input name="bank" type="text" class="form-control" value="<?php echo $row->nama_bank ?>">
                     <label for="surname">No Rekening</label>
-                    <input name="rekening" type="text" class="form-control">
+                    <input name="rekening" type="text" class="form-control" value="<?php echo $row->no_rekening ?>">
                     <label for="email">Atas Nama</label>
-                    <input name="atasnama" type="text" class="form-control">                    
+                    <input name="atasnama" type="text" class="form-control" value="<?php echo $row->atas_nama ?>">                    
                 </section>
                 <!-- <h3>Finish</h3>
                 <section>

@@ -17,7 +17,48 @@ class Upgrade extends CI_Controller {
 	{		
 		$cek = $this->Mprofilagen->show($this->session->userdata('id_agen'))->row();		
 		$data['row'] = $cek;
-		// $data['url'] = file_get_contents('http://tinyurl.com/api-create.php?url='.'http://juraganrumah.net/');		
+		$data['url'] = base_url('agen/link/'.$cek->username);	
+		$premium = $this->db->get_where('agen_premium', array('id_agen' => $this->session->userdata('id_agen')));
+		$row = $premium->row();
+		if (empty($premium->num_rows())) {
+			$data['status']	 = '<div class="card card-hover">
+                            <div class="box bg-danger text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-remove"></i></h1>
+                                <h6 class="text-white">Status Anda : Agen Free</h6>
+                                <a href="'.base_url('agen/upgrade/checkout').'" class="btn btn-success">Dapatkan Premium</a>
+                            </div>
+                        </div>';	
+            $data['invoice_no'] = '';                        
+		}elseif($row->status == "PROSES"){
+			$data['status'] = '<div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-convert"></i></h1>
+                                <h6 class="text-white">Status Anda : Validasi Pembayaran</h6>
+                                 <button type="button" class="btn btn-secondary margin-5" data-toggle="modal" data-target="#Modal2"><i class="fas fa-file-alt"></i> Invoice</button>
+                                 <button type="button" class="btn btn-success margin-5" data-toggle="modal" data-target="#Modal1"><i class="fas fa-upload"></i> Upload Bukti Transfer</button>                                                                
+                            </div>
+                        </div>';
+            $data['invoice_no'] = $row->id_invoice;
+		}elseif($row->status == "SUBMIT"){
+			$data['status'] = '<div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-convert"></i></h1>
+                                <h6 class="text-white">Status Anda : Menunggu Proses Aktivasi</h6>
+                                 <button type="button" class="btn btn-secondary margin-5" data-toggle="modal" data-target="#Modal2"><i class="fas fa-file-alt"></i> Invoice</button>                                 
+                            </div>
+                        </div>';
+            $data['invoice_no'] = '';
+		}elseif($row->status == "AKTIF"){
+			$data['status'] = '<div class="card card-hover">
+                            <div class="box bg-success text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-convert"></i></h1>
+                                <h5 class="text-white">Status Anda : Agen Premium</h5>
+                                 <button type="button" class="btn btn-default">Aktif hingga '.date('d M Y', strtotime($row->date_expired)).'</button>
+                            </div>
+                        </div>';
+            $data['invoice_no'] = '';
+		}
+
 		$data['content'] = 'agen/upgrade';
 		$this->load->view('agen/index', $data);
 	}
@@ -62,6 +103,52 @@ class Upgrade extends CI_Controller {
 		redirect('agen/upgrade','refresh');
 	}
 
+	public function submit_tf()
+	{
+		$nmfile = 'IMG-'.date('dHis'); 		
+		$config['upload_path']          = './assets/backend/foto/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 2048;
+        $config['max_width']            = 1900;
+        $config['max_height']           = 1200;
+        $config['file_name'] 			= $nmfile;         
+
+        $this->load->library('upload', $config);
+
+        if (!empty($_FILES['foto']['name'])) {
+	        if ( ! $this->upload->do_upload('foto')){
+	            $error = array('error' => $this->upload->display_errors());
+	            //$this->load->view('upload_form', $error);
+	            // echo $error['error'];
+	            $this->session->set_flashdata('error', '
+	            	$(document).ready(function(){
+	            		toastr.error("'.$error['error'].'", "Gagal Upload File!");
+	            		});
+	            	');
+	            redirect('agen/upgrade','refresh');
+	        }else{
+	            $data = $this->upload->data();
+	            $tmpname1 = $data['file_name'];
+
+	            $this->db->where('id_agen', $this->session->userdata('id_agen'));
+	            $this->db->update('agen', array(
+	            	'nama_bank' => $this->input->post('namabank'),
+	            	'no_rekening' => $this->input->post('norek'),
+	            	'atas_nama' => $this->input->post('atasnama'),
+	            ));
+
+	            $this->db->insert('bukti_premium', array(
+	            	'id_invoice' => $this->input->post('noinvoice'),
+	            	'foto' => $tmpname1
+	            ));
+	        	
+	        	$this->db->where('id_invoice', $this->input->post('noinvoice'));
+	        	$this->db->update('agen_premium', array('status' => 'SUBMIT'));
+
+	        	redirect('agen/upgrade','refresh');
+	        }
+	    }	    
+	}
 }
 
 /* End of file Upgrade.php */

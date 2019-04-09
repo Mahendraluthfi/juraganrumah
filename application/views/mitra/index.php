@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="96x96" href="<?php echo base_url() ?>assets/backend/assets/images/jr.png">
-    <title>Dashboard Agen Juragan Rumah</title>
+    <title>Dashboard Mitra Juragan Rumah</title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets/backend/assets/libs/select2/dist/css/select2.min.css">    
     <link href="<?php echo base_url() ?>assets/backend/assets/libs/magnific-popup/dist/magnific-popup.css" rel="stylesheet">    
     <!-- <link href="<?php echo base_url() ?>assets/backend/assets/libs/flot/css/float-chart.css" rel="stylesheet"> -->
@@ -185,7 +185,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="<?php echo base_url('agen/login/logout') ?>"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <a class="dropdown-item" href="<?php echo base_url('mitra/login/logout') ?>"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 <div class="dropdown-divider"></div>
                                 <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                             </div>
@@ -210,27 +210,27 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item <?php if($this->uri->segment(2) == "dashboard"){ echo 'selected'; } ?>"> 
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "dashboard"){ echo 'active'; } ?>" href="<?php echo base_url('agen') ?>" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "dashboard"){ echo 'active'; } ?>" href="<?php echo base_url('mitra') ?>" aria-expanded="false">
                                 <i class="mdi mdi-view-dashboard"></i>
-                                <span class="hide-menu">Dashboard Agen</span>
+                                <span class="hide-menu">Dashboard Mitra</span>
                             </a>
                         </li>
                         <li class="sidebar-item <?php if($this->uri->segment(2) == "profil"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "profil"){ echo 'active'; } ?>" href="<?php echo base_url('agen/profil') ?>" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "profil"){ echo 'active'; } ?>" href="<?php echo base_url('mitra/profil') ?>" aria-expanded="false">
                                 <i class="mdi mdi-account"></i>
                                 <span class="hide-menu">Profil</span>
                             </a>
                         </li>
                         <li class="sidebar-item <?php if($this->uri->segment(2) == "upgrade"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "upgrade"){ echo 'active'; } ?>" href="<?php echo base_url('agen/upgrade') ?>" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "upgrade"){ echo 'active'; } ?>" href="<?php echo base_url('mitra/upgrade') ?>" aria-expanded="false">
                                 <i class="mdi mdi-arrow-up-bold"></i>
                                 <span class="hide-menu">Upgrade</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false">
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "produk"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "produk"){ echo 'active'; } ?>" href="<?php echo base_url('mitra/produk') ?>" aria-expanded="false">
                                 <i class="mdi mdi-shopping"></i>
-                                <span class="hide-menu">Produk</span>
+                                <span class="hide-menu">Produk Anda</span>
                             </a>
                         </li>
                         <li class="sidebar-item">
@@ -240,22 +240,22 @@
                             </a>
                         </li>
                         <li class="sidebar-item <?php if($this->uri->segment(2) == "promosi"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "promosi"){ echo 'active'; } ?>" href="<?php echo base_url('agen/promosi') ?>" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "promosi"){ echo 'active'; } ?>" href="<?php echo base_url('mitra/promosi') ?>" aria-expanded="false">
                                 <i class="mdi mdi-star-circle"></i>
                                 <span class="hide-menu">Promosi</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
+                        <!-- <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-file"></i>
                                 <span class="hide-menu">Laporan </span>
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="<?php echo base_url('agen/komisi') ?>" class="sidebar-link"><i class=" fas fa-dollar-sign"></i><span class="hide-menu"> Komisi </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-user-circle"></i><span class="hide-menu"> Sub Agen </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo base_url('mitra/komisi') ?>" class="sidebar-link"><i class=" fas fa-dollar-sign"></i><span class="hide-menu"> Komisi </span></a></li>
+                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-user-circle"></i><span class="hide-menu"> Sub mitra </span></a></li>
                                 <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-users"></i><span class="hide-menu"> Buyer </span></a></li>
                             </ul>
-                        </li>                                                                
+                        </li>                                                                 -->
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

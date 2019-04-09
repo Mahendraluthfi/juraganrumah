@@ -79,3 +79,50 @@ ERROR - 2019-04-08 17:13:52 --> Severity: Notice --> Undefined variable: premium
 ERROR - 2019-04-08 17:13:52 --> Severity: error --> Exception: Call to a member function num_rows() on null C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 20
 ERROR - 2019-04-08 17:14:15 --> Severity: Notice --> Undefined property: stdClass::$date_exipred C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 25
 ERROR - 2019-04-08 17:24:30 --> 404 Page Not Found: agen/Komisi/index
+ERROR - 2019-04-08 19:29:03 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 19:29:03 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 19:29:04 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 19:33:59 --> Severity: error --> Exception: syntax error, unexpected 'strtotime' (T_STRING), expecting ',' or ')' C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 25
+ERROR - 2019-04-08 19:50:45 --> Severity: Notice --> Undefined variable: status C:\xampp\htdocs\backend\application\views\agen\upgrade.php 36
+ERROR - 2019-04-08 20:02:28 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:02:28 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:02:28 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:03:56 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:03:56 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:03:57 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:04:55 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:04:55 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:04:55 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:05:16 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:05:17 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:05:17 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:05:24 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:05:24 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:05:24 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:17:17 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:17:17 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 20:17:17 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 21:37:13 --> Severity: Notice --> Undefined index: foto C:\xampp\htdocs\backend\application\controllers\agen\Upgrade.php 114
+ERROR - 2019-04-08 21:37:52 --> Severity: Notice --> Undefined index: foto C:\xampp\htdocs\backend\application\controllers\agen\Upgrade.php 114
+ERROR - 2019-04-08 21:45:33 --> Severity: error --> Exception: syntax error, unexpected '}', expecting ',' or ';' C:\xampp\htdocs\backend\application\controllers\agen\Upgrade.php 102
+ERROR - 2019-04-08 21:50:44 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 21:50:44 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 21:50:44 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 21:50:44 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 21:56:19 --> Severity: error --> Exception: syntax error, unexpected ''", "Gagal Upload File!");' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ')' C:\xampp\htdocs\backend\application\controllers\agen\Upgrade.php 106
+ERROR - 2019-04-08 22:01:36 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 22:01:37 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 22:01:37 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 22:01:37 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 22:39:50 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 22:39:50 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 22:39:50 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-08 22:52:57 --> Severity: Notice --> Undefined variable: row C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 37
+ERROR - 2019-04-08 22:52:57 --> Severity: Notice --> Trying to get property 'status' of non-object C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 37
+ERROR - 2019-04-08 22:52:57 --> Severity: Notice --> Undefined variable: content_premium C:\xampp\htdocs\backend\application\views\agen\profil_view.php 101
+ERROR - 2019-04-08 22:53:08 --> Severity: Notice --> Undefined variable: row C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 37
+ERROR - 2019-04-08 22:53:08 --> Severity: Notice --> Trying to get property 'status' of non-object C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 37
+ERROR - 2019-04-08 22:53:08 --> Severity: Notice --> Undefined variable: content_premium C:\xampp\htdocs\backend\application\views\agen\profil_view.php 101
+ERROR - 2019-04-08 22:53:34 --> Severity: Notice --> Undefined variable: row C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 37
+ERROR - 2019-04-08 22:53:34 --> Severity: Notice --> Trying to get property 'status' of non-object C:\xampp\htdocs\backend\application\controllers\agen\Profil.php 37
+ERROR - 2019-04-08 22:53:34 --> Severity: Notice --> Undefined variable: content_premium C:\xampp\htdocs\backend\application\views\agen\profil_view.php 101

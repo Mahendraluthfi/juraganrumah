@@ -6,81 +6,81 @@
             <h4 class="card-title">Akun Info</h4>
             <hr>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Username</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Username</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->username ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->username ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Email</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Email</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->email ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->email ?>">
                 </div>
             </div>                        
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Link URL</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Link URL</label>
                 <div class="col-md-9">
-                    <input type="text" readonly class="form-control-plaintext" value="<?php //echo $url ?>"> <!-- <span><button type="button" onclick="copybtn()" class="btn btn-secondary btn-md"><i class="far fa-copy"></i> Copy to Clipboard</button></span> -->
+                    <input type="text" readonly class="form-control-plaintext" value="<?php echo $url ?>"> <!-- <span><button type="button" onclick="copybtn()" class="btn btn-secondary btn-md"><i class="far fa-copy"></i> Copy to Clipboard</button></span> -->
                 </div>
             </div>            
             <hr>
             <h4 class="card-title">Personal Info</h4>
             <hr>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Nama Lengkap</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Nama Lengkap</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->nama_agen ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->nama_agen ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">KTP</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">KTP</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->ktp ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->ktp ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Nomor Whatsapp</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Nomor Whatsapp</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->nomor_wa ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->nomor_wa ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Alamat</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Alamat</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->alamat ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->alamat ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Provinsi</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Provinsi</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->nama_prov ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->nama_prov ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Kabupaten/Kota</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Kabupaten/Kota</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->kabkot ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->kabkot ?>">
                 </div>
             </div>
             <hr>
             <h4 class="card-title">Bank Info</h4>
             <hr>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Nama Bank</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Nama Bank</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->nama_bank ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->nama_bank ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Nomor Rekening</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Nomor Rekening</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->no_rekening ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->no_rekening ?>">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="fname" class="col-md-3 text-right control-label col-form-label">Atas Nama</label>
+                <label for="fname" class="col-md-3 text-primary control-label col-form-label">Atas Nama</label>
                 <div class="col-md-9">
-                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row->atas_nama ?>">
+                     <input type="text" readonly class="form-control-plaintext" value="<?php echo $row_view->atas_nama ?>">
                 </div>
             </div>
         </div>
