@@ -317,7 +317,7 @@
     <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/jquery.flot.stack.js"></script>
     <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script> -->
-    <script src="<?php echo base_url() ?>assets/backend/dist/js/pages/chart/chart-page-init.js"></script>
+    <!-- <script src="<?php echo base_url() ?>assets/backend/dist/js/pages/chart/chart-page-init.js"></script> -->
     <!-- wizard -->
     <script src="<?php echo base_url() ?>assets/backend/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="<?php echo base_url() ?>assets/backend/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
@@ -353,6 +353,7 @@
     });
      
     $(".select2").select2();        
+    
     </script>
 
 </body>

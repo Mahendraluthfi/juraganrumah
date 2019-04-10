@@ -197,3 +197,68 @@ ERROR - 2019-04-09 16:59:47 --> Severity: Notice --> Undefined index: hook C:\xa
 ERROR - 2019-04-09 16:59:47 --> Severity: Notice --> Undefined index: furnished C:\xampp\htdocs\backend\application\controllers\mitra\Produk.php 62
 ERROR - 2019-04-09 16:59:47 --> Severity: Notice --> Undefined index: carport C:\xampp\htdocs\backend\application\controllers\mitra\Produk.php 65
 ERROR - 2019-04-09 17:14:23 --> Severity: 8192 --> Methods with the same name as their class will not be constructors in a future version of PHP; Googlemaps has a deprecated constructor C:\xampp\htdocs\backend\application\libraries\Googlemaps.php 16
+ERROR - 2019-04-09 19:34:58 --> Severity: 8192 --> Methods with the same name as their class will not be constructors in a future version of PHP; Googlemaps has a deprecated constructor C:\xampp\htdocs\backend\application\libraries\Googlemaps.php 16
+ERROR - 2019-04-09 19:37:15 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 102
+ERROR - 2019-04-09 19:46:30 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 102
+ERROR - 2019-04-09 19:51:00 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 102
+ERROR - 2019-04-09 19:58:06 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 19:58:07 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 19:58:07 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 19:58:48 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 19:58:49 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 19:58:49 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 20:00:19 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 20:00:19 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 20:00:19 --> 404 Page Not Found: Assets/backend
+ERROR - 2019-04-09 20:19:22 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 102
+ERROR - 2019-04-09 20:38:31 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 102
+ERROR - 2019-04-09 21:00:42 --> Severity: Notice --> Undefined variable: kode C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 34
+ERROR - 2019-04-09 21:00:42 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 102
+ERROR - 2019-04-09 21:01:06 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:01:27 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:02:24 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:02:37 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:02:49 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:08:14 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:10:55 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:13:26 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:14:59 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:15:14 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:11 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined property: stdClass::$id_prov C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 78
+ERROR - 2019-04-09 21:16:12 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:16:29 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:25:51 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 102
+ERROR - 2019-04-09 21:29:14 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 103
+ERROR - 2019-04-09 21:29:27 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_edit.php 103
