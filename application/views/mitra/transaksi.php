@@ -1,16 +1,17 @@
 <link href="<?php echo base_url() ?>assets/backend/assets/libs/toastr/build/toastr.min.css" rel="stylesheet">
 <script src="<?php echo base_url() ?>assets/backend/assets/libs/toastr/build/toastr.min.js"></script>
-
+<link href="<?php echo base_url() ?>assets/backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+<script src="<?php echo base_url() ?>assets/backend/assets/extra-libs/DataTables/datatables.min.js"></script>   
 
  <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
-            <h4 class="page-title">Upgrade Premium</h4>
+            <h4 class="page-title">Data Transaksi</h4>
             <div class="ml-auto text-right">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="<?php echo base_url('agen') ?>">Dashboard</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Upgrade</li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('mitra') ?>">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Transaksi</li>
                     </ol>
                 </nav>
             </div>
@@ -21,33 +22,50 @@
 <div class="container-fluid">
     
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+        <div class="col-md-12">
+            <div class="card">            
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                        <div class="card card-hover">
-                            <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-account-card-details"></i></h1>
-                                <h6 class="text-white"><?php echo $row->username ?></h6>
-                                <a href="<?php echo $url ?>" target="_blank" class="btn btn-default"><?php echo $url ?></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-6">
-                        <?php echo $status; ?>
-                    </div>
-                    
-                    </div>
-                    <h5 class="card-title">Keuntungan bergabung menjadi Agen Premium</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
-        </div>
+        <table class="table table-bordered table-hover" id="zero_config" style="font-size: 12px;">
+            <thead>
+                <tr>
+                    <th width="1%">#</th>
+                    <th>Invoice</th>
+                    <th>Deskripsi</th>
+                    <th width="1%">Qty</th>
+                    <th>Nominal</th>
+                    <th>Kode</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $no = 1; foreach ($transaksi as $data) { ?> 
+                <tr>
+                    <td><?php echo $no++ ?></td>
+                    <td><?php echo '#'.$data->id_inv ?></td>
+                    <td><?php echo $data->deskripsi ?></td>
+                    <td><?php echo $data->qty ?></td>
+                    <td><?php echo number_format($data->nominal) ?></td>
+                    <td><?php echo $data->kode ?></td>
+                    <td><?php echo number_format($data->total) ?></td>
+                    <td><?php echo $data->status ?></td>
+                    <td>
+                        <?php if ($data->status == "PROSES") { ?>
+                            <button type="button" class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Konfirmasi Pembayaran" onclick="konfirmasi('<?php echo $data->id_inv ?>')"><i class="fas fa-upload"></i></button>
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Invoice" onclick="invoice('<?php echo $data->id_inv ?>')"><i class="fas fa-clipboard"></i></button>
+                        <?php }else{ ?>                  
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Invoice" onclick="invoice('<?php echo $data->id_inv ?>')"><i class="fas fa-clipboard"></i></button>
+                        <?php } ?>
+                    </td>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </div>
-    
+</div>
+</div>
+</div>
 </div>            
 
 <div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true ">
@@ -60,25 +78,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <?php echo form_open_multipart('agen/upgrade/submit_tf', array('class' => 'form-horizontal')); ?>
-                    <div class="card-body">                        
+                <?php echo form_open_multipart('mitra/transaksi/submit_tf', array('class' => 'form-horizontal')); ?>
+                    <div class="card-body">         
+                        <h5>Data Bank Anda</h5><hr>               
                         <div class="form-group row">
                             <label for="fname" class="col-sm-3 control-label col-form-label">Nama Bank</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="namabank" placeholder="Nama Bank" value="<?php echo $row->nama_bank ?>">
+                                <input type="text" class="form-control" name="namabank" placeholder="Nama Bank" value="<?php echo $row->nama_bank ?>" readonly>
+                                <input type="hidden" name="inv">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lname" class="col-sm-3 control-label col-form-label">No Rekening</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="norek" placeholder="Nomor Rekening" value="<?php echo $row->no_rekening ?>">
+                                <input type="text" class="form-control" name="norek" placeholder="Nomor Rekening" value="<?php echo $row->no_rekening ?>" readonly>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lname" class="col-sm-3 control-label col-form-label">Atas Nama</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="atasnama" placeholder="Atas Nama" value="<?php echo $row->atas_nama ?>">
-                                <input type="hidden" name="noinvoice" value="<?php echo $invoice_no ?>">
+                                <input type="text" class="form-control" name="atasnama" placeholder="Atas Nama" value="<?php echo $row->atas_nama ?>" readonly>                                
                             </div>
                         </div>
                         <div class="form-group row">
@@ -99,7 +118,7 @@
     </div>
 </div>
 
-<div class="modal fade bs-example-modal-lg" id="invoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+ <div class="modal fade bs-example-modal-lg" id="invoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document ">
         <div class="modal-content">
             <div class="modal-header">
@@ -113,7 +132,7 @@
                         <div class="col-md-6">
                             <div class="pull-left">
                                 <address>
-                                    <h3> &nbsp;<b class="text-danger">Agen JuraganRumah Premium</b></h3>
+                                    <h3> &nbsp;<b class="text-danger">Mitra Developer Pro</b></h3>
                                     <p class="text-muted m-l-5">
                                         <br/>Wisma Purba Danarta-Antasena 4 Jl. Veteran No.7 Semarang
                                         <br/> (024) 8314793 EXT. 208</p>
@@ -149,8 +168,8 @@
                                     <tbody>                                                
                                         <tr>
                                             <td>1</td>
-                                            <td>Aktivasi Akun Agen Premium JuraganRumah</td>
-                                            <td>1</td>
+                                            <td class="deskripsi"></td>
+                                            <td class="qty"></td>
                                             <td>1 Tahun / 12 Bulan</td>
                                             <td class="nominal"></td>
                                             <td class="kode"></td>
@@ -172,25 +191,33 @@
     </div>
 </div>
 
+
 <script>
+    $('#zero_config').DataTable();            
+
+    function konfirmasi(id) {
+        $('[name="inv"]').val(id);
+        $('#Modal1').modal('show');
+    }
 
     function invoice(id) {
          $.ajax({
-            url : "<?php echo site_url('index.php/agen/upgrade/get_inv/')?>" + id,
+            url : "<?php echo site_url('index.php/mitra/transaksi/get/')?>" + id,
             type: "GET",
             dataType: "JSON",
             success: function(data)
             {   
-                $('.modal-title').text('Invoice #'+data.id_invoice);
-                $('.font-bold').text(data.nama_agen);
-                $('.date').text(data.date_start);
-                $('.identity').text(data.username);
-                $('.deskripsi').text(data.deskripsi);                
+                $('.modal-title').text('Invoice #'+data.id_inv);
+                $('.font-bold').text(data.nama_mitra);
+                $('.date').text(data.date);
+                $('.identity').text('Perusahaan; '+data.nama_perusahaan);
+                $('.deskripsi').text(data.deskripsi);
+                $('.qty').text(data.qty);
                 $('.nominal').text(data.nominal);
                 $('.kode').text(data.kode);
                 $('.total').text(data.total);
                 $('.alamat').text(data.alamat);
-                $('.telepon').text(data.nomor_wa);
+                $('.telepon').text(data.telepon);
                 $('.ttl').text('Total : '+data.total);
                 $('#invoice').modal('show');                   
             },
@@ -201,5 +228,5 @@
         });
     }
 
-     <?php echo $this->session->flashdata('error'); ?>
+     <?php echo $this->session->flashdata('error'); ?>     
 </script>

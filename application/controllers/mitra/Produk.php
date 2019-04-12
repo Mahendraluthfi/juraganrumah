@@ -34,9 +34,10 @@ class Produk extends CI_Controller {
 
 	public function add()
 	{	
+		$data['project'] = $this->db->get_where('project', array('id_mitra' => $this->session->userdata('id_mitra')))->result();
 		$data['kode'] = "JP-".date('m').$this->acak(5);
 		$data['ktg'] = $this->db->get_where('category_produk', array('status' => '1'))->result();
-		$data['prov'] = $this->db->get('prov')->result();				
+		// $data['prov'] = $this->db->get('prov')->result();				
 		$data['title'] = "Tambah Produk Baru";
 		$data['content'] = 'mitra/produk_add';
 		$this->load->view('mitra/index', $data);
@@ -50,6 +51,7 @@ class Produk extends CI_Controller {
 		$kec = $this->db->get_where('kec', array('id_kec' => $get->kecamatan))->row();
 		$data['kec'] = $kec->nama_kec;
 		$data['row'] = $get;
+		$data['project'] = $this->db->get_where('project', array('id_mitra' => $this->session->userdata('id_mitra')))->result();		
 		$data['ktg'] = $this->db->get_where('category_produk', array('status' => '1'))->result();
 		$data['prov'] = $this->db->get('prov')->result();				
 		$data['title'] = "Edit Produk";
@@ -118,12 +120,15 @@ class Produk extends CI_Controller {
 	{
 		$post = $this->input->post();
 
+		$get = $this->db->get_where('project', array('id_project' => $post['project']))->row();
+
 		$data = array(
 			'id_produk' => $post['kode_produk'],
+			'id_project' => $post['project'],
 			'id_mitra' => $this->session->userdata('id_mitra'),
 			'id_category_produk' => $post['ktg'],
 			'nama_produk' => $post['nama_produk'],
-			'alamat' => $post['alamat'],
+			'alamat' => $get->alamat,
 			'luas_tanah' => $post['luas_tanah'],
 			'luas_bangunan' => $post['luas_bangunan'],
 			'harga' => $post['harga'],
@@ -140,9 +145,10 @@ class Produk extends CI_Controller {
 			'hadap' => $post['hadap'],
 			'carport' => $post['carport'],
 			'description' => $post['deskripsi'],
-			'provinsi' => $post['prov'],
-			'kabupaten' => $post['kabkot'],
-			'kecamatan' => $post['kec']
+			'status_post' => $post['status'],
+			'provinsi' => $get->prov,
+			'kabupaten' => $get->kabkot,
+			'kecamatan' => $get->kec
 		);
 
 		$this->db->insert('produk', $data);
@@ -188,6 +194,13 @@ class Produk extends CI_Controller {
 	{
 		$data = $this->Mproduk_mitra->get_id($id)->row();
 		// $data = $this->db->get_where('produk', array('id_produk' => $id))->row();
+		echo json_encode($data);
+	}
+
+	public function get_project()
+	{
+		$id = $this->input->post('id');
+		$data = $this->Mproduk_mitra->get_project($id)->row();
 		echo json_encode($data);
 	}
 

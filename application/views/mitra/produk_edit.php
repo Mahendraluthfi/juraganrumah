@@ -76,45 +76,44 @@
                                             <input type="number" name="unit" class="form-control" placeholder="Unit" min="0" value="<?php echo $row->unit ?>">
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 control-label col-form-label">Alamat</label>
-                                        <div class="col-sm-9">
-                                            <textarea name="alamat" class="form-control" placeholder="Alamat"><?php echo $row->alamat ?></textarea>
+                                     <div class="form-group row">
+                                            <label for="lname" class="col-sm-3 control-label col-form-label">Pilih Project</label>
+                                            <div class="col-sm-9">
+                                                <select name="project" class="select2 form-control" style="width: 100%; height: 32px;" required="">
+                                                    <option value="">Pilih</option>
+                                                    <?php foreach ($project as $dpro) { ?>
+                                                        <option value="<?php echo $dpro->id_project ?>" <?php if($row->id_project == $dpro->id_project){ echo "selected"; } ?>><?php echo $dpro->nama_project ?></option>                                         
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
                                         </div>
+                                   <div class="buka" style="display: none;">
+                                            
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-3 control-label col-form-label">Alamat</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly class="form-control-plaintext" name="alamat">                        
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email1" class="col-sm-3 control-label col-form-label">Provinsi</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly class="form-control-plaintext" name="provinsi">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email1" class="col-sm-3 control-label col-form-label">Kab/Kota</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly class="form-control-plaintext" name="kabkot">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="email1" class="col-sm-3 control-label col-form-label">Kecamatan</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" readonly class="form-control-plaintext" name="kec">
+                                            </div>
+                                        </div>                                         
                                     </div>
-                                    <div class="form-group row">
-                                        <label for="email1" class="col-sm-3 control-label col-form-label">Provinsi</label>
-                                        <div class="col-sm-9">
-                                            <select name="prov" id="prov" class="select2 form-control custom-select" style="width: 100%; height:36px;" required="">
-                                               <option value="" selected="">--Pilih--</option>
-                                            <?php foreach ($prov as $dprov) { ?>                          
-                                                <option value="<?php echo $dprov->id_prov ?>" <?php if($row->provinsi == $dprov->id_prov){ echo "selected"; } ?>><?php echo $dprov->nama_prov ?></option>
-                                            <?php } ?>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email1" class="col-sm-3 control-label col-form-label">Kab/Kota</label>
-                                        <div class="col-sm-9">
-                                            <select name="kabkot" id="kabkot" class="kabkot select2 form-control custom-select" style="width: 100%; height:36px;" required="">
-                                               <option value="<?php echo $row->kabupaten ?>" selected=""><?php echo $kabkot ?></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="email1" class="col-sm-3 control-label col-form-label">Kecamatan</label>
-                                        <div class="col-sm-9">
-                                            <select name="kec" id="kec" class="kec select2 form-control custom-select" style="width: 100%; height:36px;" required="">
-                                               <option value="<?php echo $row->kecamatan ?>" selected=""><?php echo $kec ?></option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                     <!-- <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 control-label col-form-label">Lokasi</label>
-                                        <div class="col-sm-9">
-                                            <?php echo $map['js']; ?>
-                                        </div>
-                                    </div> -->
                                      <div class="form-group row">
                                         <label for="lname" class="col-sm-3 control-label col-form-label">Listrik / watt</label>
                                         <div class="col-sm-3">
@@ -221,48 +220,23 @@
 </div>         
 
 <script>
-$(document).ready(function(){
-     $('#prov').change(function(){
-     var id=$(this).val();
-        $.ajax({
-        url : "<?php echo site_url();?>index.php/mitra/produk/get_kabkot",
-        method : "POST",
-        data : {id: id},
-        async : false,
-        dataType : 'json',
-        success: function(data){
-          var html = '';
-          var i;
-          html += '<option value="0">-- Pilih --</option>';                    
-          for(i=0; i<data.length; i++){
-              html += '<option value="'+data[i].id_kabkot+'">'+data[i].nama_kabkot+'</option>';
-          }
-          $('#kabkot').html(html);                      
-          // $('#kabkot').trigger('change');                        
-        }
-      });
-    });
-  });
-
-  $(document).ready(function(){
-        $('.kabkot').change(function(){
-            var id=$(this).val();
+      $(document).ready(function(){
+         $('[name="project"]').change(function(){
+         var id = $(this).val();
             $.ajax({
-                url : "<?php echo site_url();?>index.php/mitra/produk/get_kec",
-                method : "POST",
-                data : {id: id},
-                async : false,
-                dataType : 'json',
-                success: function(data){
-                    var html = '';
-                    var i;
-                    for(i=0; i<data.length; i++){
-                        html += '<option value="'+data[i].id_kec+'">'+data[i].nama_kec+'</option>';
-                    }
-                    $('.kec').html(html);
-                    
-                }
-            });
+            url : "<?php echo site_url();?>index.php/mitra/produk/get_project",
+            method : "POST",
+            data : {id: id},
+            async : false,
+            dataType : 'json',
+            success: function(data){
+                $('[name="alamat"]').val(data.alamat);
+                $('[name="provinsi"]').val(data.nama_prov);
+                $('[name="kabkot"]').val(data.nama_kabkot);
+                $('[name="kec"]').val(data.nama_kec);
+              $('.buka').show();
+            }
+          });
         });
-    });
+      });
 </script>   

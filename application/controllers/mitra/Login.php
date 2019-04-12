@@ -33,7 +33,8 @@ class Login extends CI_Controller {
             */
                 $ses_admin = array(
                     'id_mitra' => $key->id_mitra,
-                    'email_mitra' => $key->email                    
+                    'email_mitra' => $key->email,   
+                    'inv' => date('mdis')
                 );
             }         
             $this->session->set_userdata($ses_admin);            

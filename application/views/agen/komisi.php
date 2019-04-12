@@ -24,7 +24,7 @@
             <div class="card card-hover">
                 <div class="box bg-success">
                     <h4 class="text-white">Saldo</h4>
-                    <h1 class="font-light text-white"><?php echo "Rp. ".number_format($agen->balance) ?></h1>
+                    <h1 class="font-light text-white"><?php echo "Rp. ".number_format(base64_decode($agen->balance)) ?></h1>
                 </div>
             </div>                    
         </div>
@@ -32,7 +32,7 @@
         <div class="col-md-6">
             <div class="card card-hover">
                 <div class="box bg-info">
-                   <h6 class="text-white">Pencairan saldo minimal Rp. 100.000</h6>
+                   <h6 class="text-white">Pencairan saldo minimal Rp. 1.000.000</h6>
                    <h6 class="text-white">Proses pencairan memakan waktu 1x24 Jam</h6>
                      <button type="button" class="btn btn-primary margin-5" data-toggle="modal" <?php if($agen->balance < 100000){ echo 'data-target="#Modal2"'; }else{ echo 'data-target="#Modal1"'; } ?>>
                         Cairkan Saldo

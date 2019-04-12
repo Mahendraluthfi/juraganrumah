@@ -150,3 +150,8 @@ ERROR - 2019-04-10 18:32:47 --> Severity: Notice --> Undefined variable: map C:\
 ERROR - 2019-04-10 18:33:51 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 102
 ERROR - 2019-04-10 18:36:45 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 120
 ERROR - 2019-04-10 18:40:04 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 120
+ERROR - 2019-04-10 20:21:47 --> 404 Page Not Found: mitra/Promosi/index
+ERROR - 2019-04-10 20:45:25 --> Severity: Notice --> Undefined variable: map C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 120
+ERROR - 2019-04-10 21:10:20 --> Severity: Notice --> Undefined variable: project C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 89
+ERROR - 2019-04-10 21:10:20 --> Severity: Warning --> Invalid argument supplied for foreach() C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 89
+ERROR - 2019-04-10 21:10:42 --> Severity: Notice --> Undefined variable: nama_project C:\xampp\htdocs\backend\application\views\mitra\produk_add.php 90

@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['agen'] = 'agen/login';
 $route['mitra'] = 'mitra/login';
+$route['official'] = 'admin/login';
 $route['agen/link/(:any)'] = "agen/link/get/$1";
 
 

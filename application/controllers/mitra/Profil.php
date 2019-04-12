@@ -15,17 +15,26 @@ class Profil extends CI_Controller {
 
 	public function index()
 	{
-		$data['mitra'] = $this->db->get_where('mitra', array('id_mitra' => $this->session->userdata('id_mitra')))->row();
+		$cek = $this->db->get_where('mitra', array('id_mitra' => $this->session->userdata('id_mitra')))->row();
+		if ($cek->status_akun == "TRIAL") {
+			$date_exp = date_create($cek->expired_trial);
+			$date_now = date_create(date('Y-m-d'));
+			$diff = date_diff($date_now,$date_exp);
+			$data['minus'] = $diff->format("%a");
+		}
+		$data['mitra'] = $cek;
+		$data['project'] = $this->db->get_where('project', array('id_mitra' => $this->session->userdata('id_mitra')))->result();
 		$data['content'] = 'mitra/profil';
 		$this->load->view('mitra/index', $data);
 	}
 
 	public function edit()
 	{
-		$data['row'] = $this->db->get_where('mitra', array('id_mitra' => $this->session->userdata('id_mitra')))->row();		
+		$data['row'] = $this->db->get_where('mitra', array('id_mitra' => $this->session->userdata('id_mitra')))->row();	
 		$data['content'] = 'mitra/profil_wizard';
 		$this->load->view('mitra/index', $data);
 	}
+	
 
 	public function submit()
 	{
@@ -85,6 +94,7 @@ class Profil extends CI_Controller {
       	redirect('mitra/profil','refresh');
 
 	}
+	
 
 }	
 

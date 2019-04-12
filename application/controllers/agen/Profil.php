@@ -47,7 +47,7 @@ class Profil extends CI_Controller {
 		}else{
 			$data['load'] = 'agen/profil_view';			
 		}
-		$data['url'] = base_url('agen/link/'.$cek2->username);			
+		$data['url'] = base_url('agen/link/'.$cek2->id_agen);			
 		$data['row'] = $cek2;
 		$data['row_view'] = $cek;
 		$data['prov'] = $this->db->get('prov')->result();		

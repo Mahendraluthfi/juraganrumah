@@ -13,6 +13,15 @@ class Mprofilagen extends CI_Model {
 			return $db;
 		}	
 
+
+	public function get_inv($id)
+	{
+		$this->db->from('agen_premium');
+		$this->db->join('agen', 'agen.id_agen = agen_premium.id_agen');
+		$this->db->where('id_invoice', $id);
+		$db = $this->db->get();
+		return $db;
+	}
 }
 
 /* End of file Mprofilagen.php */

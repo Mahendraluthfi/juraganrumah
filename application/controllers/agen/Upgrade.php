@@ -17,7 +17,7 @@ class Upgrade extends CI_Controller {
 	{		
 		$cek = $this->Mprofilagen->show($this->session->userdata('id_agen'))->row();		
 		$data['row'] = $cek;
-		$data['url'] = base_url('agen/link/'.$cek->username);	
+		$data['url'] = base_url('agen/link/'.$cek->id_agen);	
 		$premium = $this->db->get_where('agen_premium', array('id_agen' => $this->session->userdata('id_agen')));
 		$row = $premium->row();
 		if (empty($premium->num_rows())) {
@@ -34,7 +34,7 @@ class Upgrade extends CI_Controller {
                             <div class="box bg-warning text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-convert"></i></h1>
                                 <h6 class="text-white">Status Anda : Validasi Pembayaran</h6>
-                                 <button type="button" class="btn btn-secondary margin-5" data-toggle="modal" data-target="#Modal2"><i class="fas fa-file-alt"></i> Invoice</button>
+                                 <button type="button" class="btn btn-secondary margin-5" onclick="invoice(\''.$row->id_invoice.'\')"><i class="fas fa-file-alt"></i> Invoice</button>
                                  <button type="button" class="btn btn-success margin-5" data-toggle="modal" data-target="#Modal1"><i class="fas fa-upload"></i> Upload Bukti Transfer</button>                                                                
                             </div>
                         </div>';
@@ -44,7 +44,7 @@ class Upgrade extends CI_Controller {
                             <div class="box bg-warning text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-convert"></i></h1>
                                 <h6 class="text-white">Status Anda : Menunggu Proses Aktivasi</h6>
-                                 <button type="button" class="btn btn-secondary margin-5" data-toggle="modal" data-target="#Modal2"><i class="fas fa-file-alt"></i> Invoice</button>                                 
+                                <button type="button" class="btn btn-secondary margin-5" onclick="invoice(\''.$row->id_invoice.'\')"><i class="fas fa-file-alt"></i> Invoice</button>                           
                             </div>
                         </div>';
             $data['invoice_no'] = '';
@@ -86,7 +86,7 @@ class Upgrade extends CI_Controller {
 	public function payment_submit()
 	{
 		$id_premium = $this->acak(4);
-		$expired = date('Y-m-d', strtotime('+1 years'));
+		$expired = date('Y-m-d H:i:s', strtotime('+1 years'));
 		$post = $this->input->post();
 		$data = array(
 			'id_premium' => 'AP-'.$id_premium,
@@ -95,7 +95,7 @@ class Upgrade extends CI_Controller {
 			'nominal' => '500000',
 			'kode' => $post['kode'],
 			'total' => $post['total'],
-			'date_start' => date('Y-m-d'),
+			'date_start' => date('Y-m-d H:i:s'),
 			'date_expired' => $expired,
 			'status' => 'PROSES'
 		);
@@ -148,6 +148,12 @@ class Upgrade extends CI_Controller {
 	        	redirect('agen/upgrade','refresh');
 	        }
 	    }	    
+	}
+
+	public function get_inv($id)
+	{
+		$data = $this->Mprofilagen->get_inv($id)->row();
+		echo json_encode($data);
 	}
 }
 

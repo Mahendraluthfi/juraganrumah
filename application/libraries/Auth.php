@@ -23,6 +23,13 @@ class Auth
       }
       return true;
    }
+
+    function is_login_official(){
+      if($this->ci->session->userdata('id_user') == '' && $this->ci->session->userdata('username') == '' && $this->ci->session->userdata('level') == ''){
+         return false;
+      }
+      return true;
+   }
    
    function restrict(){
       if($this->is_login_agen() == false){

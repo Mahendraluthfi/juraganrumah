@@ -25,7 +25,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <h5>Property Anda</h5>
+                            <h5>Project Property Anda</h5>
                         </div>
                         <div class="col-md-6 text-right">
                             <a href="<?php echo base_url('mitra/produk/add') ?>" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Produk</a>
@@ -36,12 +36,12 @@
                          <table class="table table-bordered table-hover" id="zero_config">
                             <thead>
                                 <tr>
-                                    <th width="1%">#</th>
-                                    <th>Kode Produk</th>
-                                    <th>Nama</th>
+                                    <th width="1%">#</th>                                    
+                                    <th>Judul Post</th>
+                                    <th>Project</th>
                                     <th>Kategori</th>
                                     <th>Unit</th>
-                                    <th>Harga</th>
+                                    <th>Harga Jual</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -49,9 +49,9 @@
                             <tbody>
                                 <?php $no = 1; foreach ($produk as $data) { ?>
                                 <tr>
-                                    <td><?php echo $no++; ?></td>
-                                    <td><?php echo $data->id_produk ?></td>
+                                    <td><?php echo $no++; ?></td>                                    
                                     <td><?php echo $data->nama_produk ?></td>
+                                    <td><?php echo $data->nama_project ?></td>
                                     <td><?php echo $data->nama_category." / ".$data->type_category ?></td>
                                     <td><?php echo $data->unit ?></td>
                                     <td><?php echo number_format($data->harga) ?></td>
@@ -83,8 +83,7 @@
                     <span aria-hidden="true ">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                                
+            <div class="modal-body">                            
                 <div class="form-group row">
                     <label for="fname" class="col-sm-3 control-label col-form-label">Kode Produk</label>
                     <div class="col-sm-9">
@@ -97,10 +96,16 @@
                         <input type="text" readonly class="form-control-plaintext" name="nama_produk">
                     </div>
                 </div>
-                  <div class="form-group row">
+                <div class="form-group row">
                     <label for="email1" class="col-sm-3 control-label col-form-label">Kategori Produk</label>
                     <div class="col-sm-9">
                         <input type="text" readonly class="form-control-plaintext" name="kategori">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email1" class="col-sm-3 control-label col-form-label">Project</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="project">
                     </div>
                 </div>
                  <div class="form-group row">
@@ -243,6 +248,7 @@
                 $('.modal-title').text('Detail Produk');
                 $('[name="id_produk"]').val(data.id_produk);
                 $('[name="harga"]').val(data.harga);
+                $('[name="project"]').val(data.nama_project);
                 $('[name="harga_bawah"]').val(data.harga_bawah);
                 $('[name="harga_promo"]').val(data.harga_promo);
                 $('[name="nama_produk"]').val(data.nama_produk);

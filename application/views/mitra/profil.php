@@ -55,7 +55,7 @@
                             </div>
                         </div>                       
                         <div class="form-group row">
-                            <label for="fname" class="col-md-4 text-primary control-label col-form-label">Alamat</label>
+                            <label for="fname" class="col-md-4 text-primary control-label col-form-label">Alamat Perusahaan</label>
                             <div class="col-md-8">
                                  <input type="text" readonly class="form-control-plaintext" value="<?php echo $mitra->alamat ?>">
                             </div>
@@ -102,7 +102,8 @@
                 <div class="alert alert-cyan text-center" role="alert">
                   <h3><?php echo $mitra->status_akun ?></h3>
                   <?php if ($mitra->status_akun == "TRIAL") {
-                      echo "Berakhir pada ".date('d M Y', strtotime($mitra->expired_trial))."<br>";
+                      echo "<h4 class='text-danger'>".$minus." Hari Lagi</h4>";
+                      echo "<h6>Berakhir pada ".date('d M Y', strtotime($mitra->expired_trial))."</h6>";
                       echo "<a href='".base_url('mitra/upgrade')."' class='btn btn-success'>Upgrade Sekarang !</a>";
                   } ?>
                 </div>
@@ -112,7 +113,17 @@
         <div class="card">            
             <div class="card-body text-center">
                 <h4 class="card-title">Project</h4>
-                <?php //echo $content_premium ?>
+                <?php foreach ($project as $key) { ?>
+                <div class="col-md-12">
+                    <div class="card card-hover">
+                        <div class="box bg-info text-center">
+                            <h1 class="font-light text-white"><i class="mdi mdi-home-map-marker"></i></h1>
+                            <h5 class="text-white"><?php echo $key->nama_project ?></h5>
+                            <button type="button" class="btn btn-secondary" onclick="detail('<?php echo $key->id_project ?>')"><i class="fas fa-map"></i> Detail</button>
+                        </div>
+                    </div>
+                </div>                    
+                <?php } ?>
             </div>           
         </div>
 
@@ -133,4 +144,8 @@
 </div>            
 <script>
      <?php echo $this->session->flashdata('error'); ?>
+
+     function detail(id) {
+         
+     }
 </script>

@@ -13,7 +13,7 @@
                     <label for="confirm">No KTP *</label>
                     <input name="noktp" type="text" class="required form-control" value="<?php echo $row->nik_ktp ?>">
                     <label for="confirm">Foto KTP</label><p></p>
-                    <img src="<?php echo base_url('assets/backend/fotoktp/'.$row->file_ktp) ?>" height="100"><p></p>
+                    <img src="<?php echo base_url('assets/backend/fotomitra/'.$row->file_ktp) ?>" height="100"><p></p>
                     <input type="file" name="fotoktp"><p></p>
                     <label for="confirm">No Whatsapp *</label>
                     <input name="wa" type="text" class="required form-control" value="<?php echo $row->telepon ?>">
@@ -24,10 +24,10 @@
                 <h3>Profil Perusahaan</h3>
                 <section>
                     <label for="email">Logo Perusahaan (360x360 pixels)</label><p></p>
-                    <img src="<?php echo base_url('assets/backend/fotologo/'.$row->file_logo) ?>" height="100"><p></p>
+                    <img src="<?php echo base_url('assets/backend/fotomitra/'.$row->file_logo) ?>" height="100"><p></p>
                     <input type="file" name="fotologo"><p></p>
                     <label for="email">Banner (826x465 pixels)</label><p></p>
-                    <img src="<?php echo base_url('assets/backend/fotobanner/'.$row->file_banner) ?>" height="100"><p></p>
+                    <img src="<?php echo base_url('assets/backend/fotomitra/'.$row->file_banner) ?>" height="100"><p></p>
                     <input type="file" name="fotobanner"><p></p>                    
                     <label for="email">Alamat</label>
                     <textarea class="form-control" name="alamat"><?php echo $row->alamat; ?></textarea>
