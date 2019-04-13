@@ -190,6 +190,19 @@ class Produk extends CI_Controller {
 		redirect('mitra/produk','refresh');
 	}
 
+	public function delete($id,$foto,$idp)
+	{
+		$target = './assets/backend/fotoproduk/'.$foto;
+		if (file_exists($target)) {
+			unlink($target);
+		}
+
+		$this->db->where('id_foto', $id);
+		$this->db->delete('foto_produk');
+
+		redirect('mitra/produk/foto/'.$idp,'refresh');
+	}
+
 	public function get($id)
 	{
 		$data = $this->Mproduk_mitra->get_id($id)->row();

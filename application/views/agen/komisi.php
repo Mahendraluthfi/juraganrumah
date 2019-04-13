@@ -34,7 +34,7 @@
                 <div class="box bg-info">
                    <h6 class="text-white">Pencairan saldo minimal Rp. 1.000.000</h6>
                    <h6 class="text-white">Proses pencairan memakan waktu 1x24 Jam</h6>
-                     <button type="button" class="btn btn-primary margin-5" data-toggle="modal" <?php if($agen->balance < 100000){ echo 'data-target="#Modal2"'; }else{ echo 'data-target="#Modal1"'; } ?>>
+                     <button type="button" class="btn btn-primary margin-5" data-toggle="modal" <?php if($agen->balance < 1000000){ echo 'data-target="#Modal2"'; }else{ echo 'data-target="#Modal1"'; } ?>>
                         Cairkan Saldo
                     </button>            
                 </div>

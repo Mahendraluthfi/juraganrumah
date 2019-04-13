@@ -37,7 +37,7 @@ class Upgrade extends CI_Controller {
                 <div class="box bg-success text-center">                    
                     <h1 class="font-light text-white"><i class="mdi mdi-star-circle"></i> PRO</h1>
                     <h6 class="text-white">Berakhir pada '.date('d M Y', strtotime($cek->expired_premium)).'</h6>
-                    <a href="'.base_url('mitra/upgrade/checkout/pro').'" class="btn btn-info">Tambah Project</a>
+                    <a href="#" class="btn btn-info">Tambah Project</a>
                 </div>
             </div>';	
 		}

@@ -252,7 +252,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<?php echo base_url('mitra/transaksi') ?>" class="sidebar-link"><i class="mdi mdi-transfer"></i><span class="hide-menu"> Transaksi </span></a></li>
-                                <li class="sidebar-item"><a href="<?php echo base_url('mitra/transaksi') ?>" class="sidebar-link"><i class="fas fa-dollar-sign"></i><span class="hide-menu"> Saldo </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo base_url('mitra/saldo') ?>" class="sidebar-link"><i class="fas fa-dollar-sign"></i><span class="hide-menu"> Saldo </span></a></li>
                                 <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-shopping-cart"></i><span class="hide-menu"> Penjualan </span></a></li>
                                 <!-- <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-users"></i><span class="hide-menu"> Buyer </span></a></li> -->
                             </ul>

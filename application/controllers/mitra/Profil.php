@@ -21,6 +21,11 @@ class Profil extends CI_Controller {
 			$date_now = date_create(date('Y-m-d'));
 			$diff = date_diff($date_now,$date_exp);
 			$data['minus'] = $diff->format("%a");
+		}elseif($cek->status_akun == "PRO") {
+			$date_exp = date_create($cek->expired_premium);
+			$date_now = date_create(date('Y-m-d'));
+			$diff = date_diff($date_now,$date_exp);
+			$data['minus'] = $diff->format("%a");
 		}
 		$data['mitra'] = $cek;
 		$data['project'] = $this->db->get_where('project', array('id_mitra' => $this->session->userdata('id_mitra')))->result();

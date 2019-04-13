@@ -105,6 +105,9 @@
                       echo "<h4 class='text-danger'>".$minus." Hari Lagi</h4>";
                       echo "<h6>Berakhir pada ".date('d M Y', strtotime($mitra->expired_trial))."</h6>";
                       echo "<a href='".base_url('mitra/upgrade')."' class='btn btn-success'>Upgrade Sekarang !</a>";
+                  } elseif ($mitra->status_akun == "PRO"){
+                      echo "<h4 class='text-danger'>".$minus." Hari Lagi</h4>";
+                      echo "<h6>Berakhir pada ".date('d M Y', strtotime($mitra->expired_premium))."</h6>";
                   } ?>
                 </div>
             </div>           

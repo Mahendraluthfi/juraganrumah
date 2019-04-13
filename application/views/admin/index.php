@@ -226,6 +226,12 @@
                                 <i class="mdi mdi-account-box"></i>
                                 <span class="hide-menu">Data Mitra</span>
                             </a>
+                        </li>    
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "produk"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "produk"){ echo 'active'; } ?>" href="<?php echo base_url('admin/produk') ?>" aria-expanded="false">
+                                <i class="mdi mdi-shopping"></i>
+                                <span class="hide-menu">Data Produk</span>
+                            </a>
                         </li>                    
                         <li class="sidebar-item <?php if($this->uri->segment(2) == "buyer"){ echo 'selected'; } ?>">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "buyer"){ echo 'active'; } ?>" href="<?php echo base_url('admin/buyer') ?>" aria-expanded="false">

@@ -68,7 +68,7 @@
                                 <td><?php echo $no++ ?></td>
                                 <td><img src="<?php echo base_url('assets/backend/fotoproduk/'.$data->file) ?>" alt="" class="img-thumbnail" style="height: 250px;"></td>
                                 <td>
-                                    <a href="<?php echo base_url('mitra/produk/delete/'.$data->id_foto.'/'.$data->file) ?>" class="btn btn-danger" title="Hapus" onclick="return confirm('Yakin hapus foto ?')"><i class="fas fa-trash"></i></a>
+                                    <a href="<?php echo base_url('mitra/produk/delete/'.$data->id_foto.'/'.$data->file.'/'.$data->id_produk) ?>" class="btn btn-danger" title="Hapus" onclick="return confirm('Yakin hapus foto ?')"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
                             <?php } ?>

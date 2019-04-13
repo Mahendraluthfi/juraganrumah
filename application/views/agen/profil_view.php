@@ -1,3 +1,7 @@
+<link href="<?php echo base_url() ?>assets/backend/assets/libs/toastr/build/toastr.min.css" rel="stylesheet">
+
+<script src="<?php echo base_url() ?>assets/backend/assets/libs/toastr/build/toastr.min.js"></script>
+
 <div class="col-md-8">
 
 <div class="card">
@@ -20,7 +24,7 @@
             <div class="form-group row">
                 <label for="fname" class="col-md-3 text-primary control-label col-form-label">Link URL</label>
                 <div class="col-md-9">
-                    <input type="text" readonly class="form-control-plaintext" value="<?php echo $url ?>"> <!-- <span><button type="button" onclick="copybtn()" class="btn btn-secondary btn-md"><i class="far fa-copy"></i> Copy to Clipboard</button></span> -->
+                    <input type="text" readonly class="form-control-plaintext" value="<?php echo $url ?>" id="pilih"> <span><button type="button" onclick="copybtn()" class="btn btn-secondary btn-md"><i class="far fa-copy"></i> Copy to Clipboard</button></span>
                 </div>
             </div>            
             <hr>
@@ -105,5 +109,9 @@
 </div>   
 
 <script>
-   
+     function copybtn() {
+        document.getElementById("pilih").select();
+        document.execCommand("copy");
+        toastr.success('Text disalin', 'Berhasil');
+    }
 </script>
