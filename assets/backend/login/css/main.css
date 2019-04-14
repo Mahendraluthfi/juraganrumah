@@ -62,10 +62,10 @@ a:focus {
 a:hover {
 	text-decoration: none;
   color: #6a7dfe;
-  color: -webkit-linear-gradient(left, #21d4fd, #b721ff);
-  color: -o-linear-gradient(left, #21d4fd, #b721ff);
-  color: -moz-linear-gradient(left, #21d4fd, #b721ff);
-  color: linear-gradient(left, #21d4fd, #b721ff);
+  color: -webkit-linear-gradient(left, #fa7513, #ffd513);
+  color: -o-linear-gradient(left, #fa7513, #ffd513);
+  color: -moz-linear-gradient(left, #fa7513, #ffd513);
+  color: linear-gradient(left, #fa7513, #ffd513);
 }
 
 /*---------------------------------------------*/
@@ -381,10 +381,10 @@ iframe {
   width: 300%;
   height: 100%;
   background: #a64bf4;
-  background: -webkit-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
-  background: -o-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
-  background: -moz-linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
-  background: linear-gradient(right, #21d4fd, #b721ff, #21d4fd, #b721ff);
+  background: -webkit-linear-gradient(right, #fa7513, #ffd513, #fa7513, #ffd513);
+  background: -o-linear-gradient(right, #fa7513, #ffd513, #fa7513, #ffd513);
+  background: -moz-linear-gradient(right, #fa7513, #ffd513, #fa7513, #ffd513);
+  background: linear-gradient(right, #fa7513, #ffd513, #fa7513, #ffd513);
   top: 0;
   left: -100%;
 

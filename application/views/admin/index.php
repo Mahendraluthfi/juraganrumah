@@ -238,7 +238,19 @@
                                 <i class="mdi mdi-account"></i>
                                 <span class="hide-menu">Data Buyer</span>
                             </a>
-                        </li>                    
+                        </li> 
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "survei"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "survei"){ echo 'active'; } ?>" href="<?php echo base_url('admin/survei') ?>" aria-expanded="false">
+                                <i class="mdi mdi-calendar-text"></i>
+                                <span class="hide-menu">Data Survei</span>
+                            </a>
+                        </li> 
+                         <li class="sidebar-item <?php if($this->uri->segment(2) == "penjualan"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "penjualan"){ echo 'active'; } ?>" href="<?php echo base_url('admin/penjualan') ?>" aria-expanded="false">
+                                <i class="fas fa-dollar-sign"></i>
+                                <span class="hide-menu">Data Penjualan</span>
+                            </a>
+                        </li>                        
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-bookmark-check"></i>

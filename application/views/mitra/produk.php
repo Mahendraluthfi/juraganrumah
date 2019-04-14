@@ -273,7 +273,7 @@
                 $('[name="kabkot"]').val(data.nama_kabkot);
                 $('[name="kec"]').val(data.nama_kec);
                 $('#view_modal').modal('show');
-                console.log(data);
+                // console.log(data);
             },
         error: function (jqXHR, textStatus, errorThrown)
         {

@@ -55,19 +55,19 @@
                                     <div class="form-group row">
                                         <label for="lname" class="col-sm-3 control-label col-form-label">Harga Jual</label>
                                         <div class="col-sm-9">
-                                            <input type="number" name="harga" class="form-control" placeholder="Harga" min="0">
+                                            <input type="number" name="harga" class="form-control" placeholder="Harga" min="0" value="<?php echo $row->harga ?>">
                                         </div>
                                     </div>
                                      <div class="form-group row">
                                         <label for="lname" class="col-sm-3 control-label col-form-label">Harga Bawah</label>
                                         <div class="col-sm-9">
-                                            <input type="number" name="harga_bawah" class="form-control" placeholder="Harga" min="0">
+                                            <input type="number" name="harga_bawah" class="form-control" placeholder="Harga" min="0" value="<?php echo $row->harga_bawah ?>">
                                         </div>
                                     </div>
                                      <div class="form-group row">
                                         <label for="lname" class="col-sm-3 control-label col-form-label">Harga Promo</label>
                                         <div class="col-sm-9">
-                                            <input type="number" name="harga_promo" class="form-control" placeholder="Harga" min="0">
+                                            <input type="number" name="harga_promo" class="form-control" placeholder="Harga" min="0" value="<?php echo $row->harga_promo ?>">
                                         </div>
                                     </div>
                                      <div class="form-group row">

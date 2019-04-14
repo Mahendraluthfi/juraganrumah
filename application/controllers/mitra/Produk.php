@@ -152,18 +152,18 @@ class Produk extends CI_Controller {
 		);
 
 		$this->db->insert('produk', $data);
-		redirect('mitra/produk','refresh');
+		redirect('mitra/produk/foto/'.$post['kode_produk'],'refresh');		
 	}
 
 	public function submit_edit()
 	{
 		$post = $this->input->post();
-
+		$get_all = $this->db->get_where('project', array('id_project' => $post['project']))->row();
 		$data = array(
 			'id_mitra' => $this->session->userdata('id_mitra'),
 			'id_category_produk' => $post['ktg'],
-			'nama_produk' => $post['nama_produk'],
-			'alamat' => $post['alamat'],
+			'id_project' => $post['project'],
+			'nama_produk' => $post['nama_produk'],			
 			'luas_tanah' => $post['luas_tanah'],
 			'luas_bangunan' => $post['luas_bangunan'],
 			'harga' => $post['harga'],
@@ -179,12 +179,15 @@ class Produk extends CI_Controller {
 			'jenis_air' => $post['jenis_air'],
 			'hadap' => $post['hadap'],
 			'carport' => $post['carport'],
+			'status_post' => $post['status'],
 			'description' => $post['deskripsi'],
-			'provinsi' => $post['prov'],
-			'kabupaten' => $post['kabkot'],
-			'kecamatan' => $post['kec']
+			'provinsi' => $get_all->prov,
+			'kabupaten' => $get_all->kabkot,
+			'kecamatan' => $get_all->kec,
+			'alamat' => $get_all->alamat
 		);
 
+		// print_r($data);
 		$this->db->where('id_produk', $post['kode_produk']);
 		$this->db->update('produk', $data);
 		redirect('mitra/produk','refresh');
