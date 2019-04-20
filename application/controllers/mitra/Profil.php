@@ -93,7 +93,8 @@ class Profil extends CI_Controller {
       		'profil_perusahaan' => $this->input->post('profil'),
       		'no_rekening' => $this->input->post('rekening'), 
 			'atas_nama' => $this->input->post('atasnama'), 
-			'nama_bank' => $this->input->post('bank') 			
+			'nama_bank' => $this->input->post('bank'),			
+			'komisi' => $this->input->post('komisi')
       	));
 
       	redirect('mitra/profil','refresh');

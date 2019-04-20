@@ -111,41 +111,6 @@
                                                 </select>
                                             </div>
                                         </div>                                                                                 
-                                         <div class="form-group row">
-                                            <label for="lname" class="col-sm-3 control-label col-form-label">Listrik / watt</label>
-                                            <div class="col-sm-3">
-                                                <input type="number" name="listrik" class="form-control" placeholder="Daya Listrik" min="0">
-                                            </div>
-                                            <label for="lname" class="col-sm-3 control-label col-form-label">Sertifikat</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" name="sertifikat" class="form-control" placeholder="Sertifikat">
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label for="lname" class="col-sm-3 control-label col-form-label">Jenis Air</label>
-                                            <div class="col-sm-3">
-                                                <input type="text" name="jenis_air" class="form-control" placeholder="Jenis Air">
-                                            </div>
-                                            <label for="lname" class="col-sm-3 control-label col-form-label">Hadap Bangunan</label>
-                                            <div class="col-sm-3">
-                                                <select name="hadap" class="select2 form-control">
-                                                    <option value="Selatan">Selatan</option>                 
-                                                    <option value="Barat">Barat</option>                 
-                                                    <option value="Utara">Utara</option>                          
-                                                    <option value="Timur">Timur</option>                                                
-                                                </select>
-                                            </div>
-                                        </div>
-                                         <div class="form-group row">
-                                            <label for="lname" class="col-sm-3 control-label col-form-label">Kamar Tidur</label>
-                                            <div class="col-sm-3">
-                                                <input type="number" name="kamar_tidur" class="form-control" placeholder="Kamar Tidur" min="0">
-                                            </div>
-                                            <label for="lname" class="col-sm-3 control-label col-form-label">Kamar Mandi</label>
-                                            <div class="col-sm-3">
-                                                <input type="number" name="kamar_mandi" class="form-control" placeholder="Kamar Mandi" min="0">
-                                            </div>
-                                        </div>
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-3 control-label col-form-label">Luas Tanah / m<sub>2</sub></label>
                                             <div class="col-sm-3">
@@ -157,19 +122,41 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label for="lname" class="col-sm-3 control-label col-form-label">Furnished</label>
-                                            <div class="col-sm-3">
-                                                <select name="furnished" class="form-control">
-                                                    <option value="YA">YA</option>                           
-                                                    <option value="TIDAK">TIDAK</option>            
-                                                </select>
-                                            </div>                                        
+                                                                                
                                             <label for="lname" class="col-sm-3 control-label col-form-label">Jumlah Lantai</label>
                                             <div class="col-sm-3">
                                                 <input type="number" class="form-control" name="jumlah_lantai" placeholder="Jumlah Lantai" min="0">
-                                            </div>                                        
+                                            </div> 
+                                            <label for="lname" class="col-sm-3 control-label col-form-label">Kamar Tidur</label>
+                                            <div class="col-sm-3">
+                                                <input type="number" name="kamar_tidur" class="form-control" placeholder="Kamar Tidur" min="0">
+                                            </div>                                       
                                         </div>                                    
-                                        <div class="form-group row">
+                                         <div class="form-group row">                                            
+                                            <label for="lname" class="col-sm-3 control-label col-form-label">Kamar Mandi</label>
+                                            <div class="col-sm-3">
+                                                <input type="number" name="kamar_mandi" class="form-control" placeholder="Kamar Mandi" min="0">
+                                            </div>
+                                             <label for="lname" class="col-sm-3 control-label col-form-label">Sertifikat</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" name="sertifikat" class="form-control" placeholder="Sertifikat">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label for="lname" class="col-sm-3 control-label col-form-label">Listrik / watt</label>
+                                            <div class="col-sm-3">
+                                                <input type="number" name="listrik" class="form-control" placeholder="Daya Listrik" min="0">
+                                            </div>
+                                             <label for="lname" class="col-sm-3 control-label col-form-label">Furnished</label>
+                                            <div class="col-sm-3">
+                                                <select name="furnished" class="form-control">
+                                                    <option value="YA">YA</option>                           
+                                                    <option value="SEMI">SEMI</option>                           
+                                                    <option value="TIDAK">TIDAK</option>            
+                                                </select>
+                                            </div>   
+                                        </div>
+                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-3 control-label col-form-label">Hook / Pojok</label>
                                             <div class="col-sm-3">
                                                 <select name="hook" class="form-control">
@@ -177,6 +164,21 @@
                                                     <option value="TIDAK">TIDAK</option>            
                                                 </select>
                                             </div>                                        
+                                            <label for="lname" class="col-sm-3 control-label col-form-label">Hadap Bangunan</label>
+                                            <div class="col-sm-3">
+                                                <select name="hadap" class="select2 form-control">
+                                                    <option value="Selatan">Selatan</option>                 
+                                                    <option value="Barat">Barat</option>                 
+                                                    <option value="Utara">Utara</option>                          
+                                                    <option value="Timur">Timur</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-3 control-label col-form-label">Jenis Air</label>
+                                            <div class="col-sm-3">
+                                                <input type="text" name="jenis_air" class="form-control" placeholder="Jenis Air">
+                                            </div>
                                             <label for="lname" class="col-sm-3 control-label col-form-label">Carport</label>
                                             <div class="col-sm-3">
                                                 <select name="carport" class="form-control">

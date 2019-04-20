@@ -76,18 +76,7 @@
                         <!-- ============================================================== -->
                         <!-- create new -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
-                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
+                        <li class="nav-item dropdown"></li>
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
@@ -105,14 +94,7 @@
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
-                            </a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+                            
                         </li>
                         <!-- ============================================================== -->
                         <!-- End Comment -->
@@ -121,56 +103,7 @@
                         <!-- Messages -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
-                                <ul class="list-style-none">
-                                    <li>
-                                        <div class="">
-                                             <!-- Message -->
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Event today</h5> 
-                                                        <span class="mail-desc">Just a reminder that event</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Settings</h5> 
-                                                        <span class="mail-desc">You can customize this template</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Pavan kumar</h5> 
-                                                        <span class="mail-desc">Just see the my admin!</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <!-- Message -->
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Luanch Admin</h5> 
-                                                        <span class="mail-desc">Just see the my new admin!</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                            
                         </li>
                         <!-- ============================================================== -->
                         <!-- End Messages -->
@@ -230,11 +163,11 @@
                         <li class="sidebar-item <?php if($this->uri->segment(2) == "produk"){ echo 'selected'; } ?>">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "produk"){ echo 'active'; } ?>" href="<?php echo base_url('mitra/produk') ?>" aria-expanded="false">
                                 <i class="mdi mdi-shopping"></i>
-                                <span class="hide-menu">Produk Anda</span>
+                                <span class="hide-menu">Projek Anda</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false">
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "statistik"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "statistik"){ echo 'active'; } ?>" href="<?php echo base_url('mitra/statistik') ?>" aria-expanded="false">
                                 <i class="mdi mdi-chart-arc"></i>
                                 <span class="hide-menu">Statistik</span>
                             </a>
@@ -245,6 +178,12 @@
                                 <span class="hide-menu">Promosi</span>
                             </a>
                         </li>
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "artikel"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "artikel"){ echo 'active'; } ?>" href="<?php echo base_url('mitra/artikel') ?>" aria-expanded="false">
+                                <i class="mdi mdi-file-document-box"></i>
+                                <span class="hide-menu">Artikel</span>
+                            </a>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-file"></i>
@@ -253,7 +192,8 @@
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<?php echo base_url('mitra/transaksi') ?>" class="sidebar-link"><i class="mdi mdi-transfer"></i><span class="hide-menu"> Transaksi </span></a></li>
                                 <li class="sidebar-item"><a href="<?php echo base_url('mitra/saldo') ?>" class="sidebar-link"><i class="fas fa-dollar-sign"></i><span class="hide-menu"> Saldo </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-shopping-cart"></i><span class="hide-menu"> Penjualan </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo base_url('mitra/penjualan') ?>" class="sidebar-link"><i class="fas fa-shopping-cart"></i><span class="hide-menu"> Penjualan </span></a></li>
+                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-watch"></i><span class="hide-menu"> Survei </span></a></li>
                                 <!-- <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-users"></i><span class="hide-menu"> Buyer </span></a></li> -->
                             </ul>
                         </li>                                                                

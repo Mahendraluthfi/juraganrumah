@@ -80,7 +80,7 @@
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-3 control-label col-form-label">Alamat</label>
                                             <div class="col-sm-9">
-                                                <textarea class="form-control" name="alamat" placeholder="Alamat"></textarea>
+                                                <textarea class="form-control" name="alamat" placeholder="Alamat"><?php echo $row->alamat ?></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group row">

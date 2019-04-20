@@ -11,6 +11,7 @@ class Mpenjualan extends CI_Model {
 		$this->db->join('detail_transaksi', 'transaksi.id_transaksi = detail_transaksi.id_transaksi');
 		$this->db->join('produk', 'produk.id_produk = detail_transaksi.id_produk');
 		$this->db->join('mitra', 'produk.id_mitra = mitra.id_mitra', 'left');
+		$this->db->group_by('transaksi.id_transaksi');
 		$db = $this->db->get();
 		return $db;
 	}	
@@ -32,6 +33,7 @@ class Mpenjualan extends CI_Model {
 		$this->db->select('*, transaksi.status as sts');
 		$this->db->from('transaksi');
 		$this->db->join('buyer', 'transaksi.id_buyer = buyer.id_buyer');
+		$this->db->join('agen', 'transaksi.id_agen = agen.id_agen', 'left');
 		$this->db->where('transaksi.id_transaksi', $id);
 		$db = $this->db->get();
 		return $db;
@@ -60,6 +62,15 @@ class Mpenjualan extends CI_Model {
 		return $db;
 	}
 
+	public function get_persen($id)
+	{
+		$this->db->from('detail_transaksi');
+		$this->db->join('produk', 'produk.id_produk = detail_transaksi.id_produk');
+		$this->db->join('mitra', 'mitra.id_mitra = produk.id_mitra', 'left');
+		$this->db->where('detail_transaksi.id_produk', $id);
+		$db = $this->db->get();
+		return $db;	
+	}
 }
 
 /* End of file Mpenjualan.php */

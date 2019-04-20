@@ -42,6 +42,12 @@
                     <input name="rekening" type="text" class="form-control" value="<?php echo $row->no_rekening ?>">
                     <label for="email">Atas Nama</label>
                     <input name="atasnama" type="text" class="form-control" value="<?php echo $row->atas_nama ?>">
+                    <label for="email">Pilihan Komisi</label>
+                    <select name="komisi" class="form-control">
+                        <option value="2.5" <?php if($row->komisi == "2.5"){echo "selected"; } ?>>2.5 %</option>                        
+                        <option value="3" <?php if($row->komisi == "3"){echo "selected"; } ?>>3 %</option>                        
+                        <option value="5" <?php if($row->komisi == "5"){echo "selected"; } ?>>5 %</option>                        
+                    </select>
                 </section>
                 <!-- <h3>Finish</h3>
                 <section>

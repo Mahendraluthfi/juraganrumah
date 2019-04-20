@@ -30,8 +30,7 @@
                                     <th>#</th>
                                     <th>Tanggal</th>
                                     <th>Buyer</th>
-                                    <th>Developer</th>
-                                    <th>Produk</th>
+                                    <th>Developer</th>                                    
                                     <th>Tipe Bayar</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
@@ -43,14 +42,16 @@
                                     <td><?php echo $no++ ?></td>
                                     <td><?php echo date('d M Y', strtotime($data->date)) ?></td>
                                     <td><?php echo $data->nama_buyer ?></td>
-                                    <td><?php echo $data->nama_perusahaan ?></td>
-                                    <td><?php echo $data->nama_produk ?></td>
+                                    <td><?php echo $data->nama_perusahaan ?></td>                                    
                                     <td><?php echo $data->tipe_bayar ?></td>                                    
                                     <td><?php echo $data->status ?></td>
                                     <td>
                                         <button type="button" class="btn btn-primary btn-sm margin-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tampilkan Detail" onclick="view('<?php echo $data->id_transaksi ?>')"><i class="fas fa-file-alt"></i></button>
+                                        <?php if ($data->status == "PROSES") { ?>
+                                            
                                         <button type="button" class="btn btn-success btn-sm margin-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Action Closing" onclick="closing('<?php echo $data->id_transaksi ?>','<?php echo $data->total_prize ?>','<?php echo $data->status ?>')"><i class="fas fa-check"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm margin-5" data-toggle="tooltip" data-placement="top" title="" data-original-title="Batalkan" onclick="batal('<?php echo $data->id_transaksi ?>')"><i class="fas fa-window-close"></i></button>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                                 <?php } ?>
@@ -125,6 +126,20 @@
                     <div class="col-sm-3">
                         <input type="text" readonly class="form-control-plaintext" name="no_wa">
                     </div>
+                </div>   
+                 <hr>
+                <div class="text-center">
+                    <h5 class="text-primary">Data Agen</h5>
+                </div><hr>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Nama Agen</label>
+                    <div class="col-sm-3">
+                        <input type="text" readonly class="form-control-plaintext" name="nama_agen">
+                    </div>
+                    <label for="fname" class="col-sm-3 control-label col-form-label">No WA</label>
+                    <div class="col-sm-3">
+                        <input type="text" readonly class="form-control-plaintext" name="no_wa_agen">
+                    </div>
                 </div>                
                 
             </div>
@@ -172,6 +187,24 @@
                         <input type="hidden" name="id_transaksi">
                     </div>
                 </div>
+                <hr>
+                <h4>Komisi</h4><hr>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Komisi Agen</label>
+                    <div class="col-sm-3">
+                        <input type="text" readonly class="form-control-plaintext" name="komisi_agen">
+                    </div>                    
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Komisi Promosi</label>
+                    <div class="col-sm-3">
+                        <input type="text" readonly class="form-control-plaintext" name="komisi_promosi">
+                    </div>                    
+                </div>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Komisi Manajemen</label>
+                    <div class="col-sm-3">
+                        <input type="text" readonly class="form-control-plaintext" name="komisi_manajemen">
+                    </div>                                                    
+                </div>                
             </div>
             <div class="modal-footer">
             <button type="submit" class="btn btn-default" onclick="return confirm('Yakin Closing Penjualan ini ?')">Validasi Closing Penjualan</button>    
@@ -185,7 +218,7 @@
     <div class="modal-dialog modal-lg" role="document ">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <h5 class="modal-title" id="exampleModalLabel">Detail Produk</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true ">&times;</span>
                 </button>
@@ -224,7 +257,7 @@
                  <div class="form-group row">
                     <label for="lname" class="col-sm-3 control-label col-form-label">Harga Bawah</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" name="harga_bawah">
+                        <input type="text" readonly class="form-control-plaintext" name="hargabawah">
                     </div>
                 </div>
                  <div class="form-group row">
@@ -366,6 +399,12 @@
             </div>
             <div class="modal-body">
                 <?php echo form_open('admin/penjualan/post_deal'); ?>
+                 <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Nama Property</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="nmproperty">
+                    </div>
+                </div>
                 <div class="form-group row">
                     <label for="fname" class="col-sm-3 control-label col-form-label">Edit Harga Deal</label>
                     <div class="col-sm-9">
@@ -403,18 +442,20 @@
                 var html = '';
                 var i;
                 for(i=0; i<data.length; i++){
+                    var x = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data[i].harga);
+                    
                     html += "<tr>"+                                                
                         "<td>"+data[i].nama_produk+"</td>"+
                         "<td>"+data[i].nama_perusahaan+"</td>"+
                         "<td>"+data[i].jml_unit+"</td>"+
-                        "<td>"+data[i].harga+"</td>"+
+                        "<td>Rp. "+x+",-</td>"+
                         "<td>"+
-                        "<a href='javascript:;' class='btn btn-primary btn-sm item_detail' data='"+data[i].id_produk+"'><span class='fas fa-edit'></span> Detail</a>"+
+                        "<button type='button' class='btn btn-primary btn-sm item_detail' onclick=\"detail(\'"+data[i].id_produk+"\')\"><span class='fas fa-edit'></span> Detail</button>"+
                         "</td>"+
                         "</tr>";
                     }
                 $('#show_view').html(html);                                
-                $('#view_modal').modal('show');
+                // $('#view_modal').modal('show');
 
             },
             error: function (jqXHR, textStatus, errorThrown){
@@ -428,41 +469,48 @@
             dataType: "JSON",
             success: function(data)
             {   
+               var total_prize = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.total_prize);
+
                $('.view-title').text('Detail Transaksi #'+id);
                $('[name="nama_buyer"]').val(data.nama_buyer);
                $('[name="no_wa"]').val(data.telepon);
+               $('[name="nama_agen"]').val(data.nama_agen);
+               $('[name="no_wa_agen"]').val(data.nomor_wa);
                $('[name="tgl"]').val(data.date);
-               $('[name="total"]').val(data.total_prize);
+               $('[name="total"]').val('Rp. '+total_prize);
                $('[name="tipe"]').val(data.tipe_bayar);
                $('[name="status"]').val(data.sts);
                
                $('#view_modal').modal('show');
                // console.log(data);
             },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error get data from ajax');
-        }
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error get data from ajax');
+            }
         });
+       
 
     }
 
-    $('#show_view').on('click','.item_detail',function(){
-        var idp = $(this).attr('data');         
-        // alert(idp);
+    function detail(idp) {              
         $.ajax({
           url : "<?php echo site_url('admin/penjualan/get_produkdetail')?>/" + idp,
           type: "GET",
           dataType: "JSON",
           success: function(data)
-          {                            
-                $('.modal-title').text('Detail Produk');
+          {                       
+                var harga = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga);
+                var harga_bawah = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_bawah);
+                var harga_promo = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_promo);
+                
                 $('[name="id_produk"]').val(data.id_produk);
-                $('[name="harga"]').val(data.harga);
-                $('[name="project"]').val(data.nama_project);
-                $('[name="harga_bawah"]').val(data.harga_bawah);
-                $('[name="harga_promo"]').val(data.harga_promo);
                 $('[name="nama_produk"]').val(data.nama_produk);
+                $('[name="harga"]').val('Rp. '+harga);
+                $('[name="hargabawah"]').val('Rp. '+harga_bawah);
+                $('[name="harga_promo"]').val('Rp. '+harga_promo);
+                $('[name="project"]').val(data.nama_project);
+                $('[name="harga_bawah"]').val(data.harga_bawah);                
                 $('[name="jenis_air"]').val(data.jenis_air);
                 $('[name="luas_bangunan"]').val(data.luas_bangunan);
                 $('[name="luas_tanah"]').val(data.luas_tanah);
@@ -483,61 +531,16 @@
                 $('[name="prov"]').val(data.nama_prov);
                 $('[name="kabkot"]').val(data.nama_kabkot);
                 $('[name="kec"]').val(data.nama_kec);      
-                // $('#view_modal').modal('hide');
                 $('#detail_modal').modal('show');
+                // console.log(data);
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
               alert('Error get data from ajax');
           }
         });
-    })
+    };
 
-    $('#show_close').on('click','.item_detail',function(){
-        var idp = $(this).attr('data');         
-        // alert(idp);
-        $.ajax({
-          url : "<?php echo site_url('admin/penjualan/get_produkdetail')?>/" + idp,
-          type: "GET",
-          dataType: "JSON",
-          success: function(data)
-          {                            
-                $('.modal-title').text('Detail Produk');
-                $('[name="id_produk"]').val(data.id_produk);
-                $('[name="harga"]').val(data.harga);
-                $('[name="project"]').val(data.nama_project);
-                $('[name="harga_bawah"]').val(data.harga_bawah);
-                $('[name="harga_promo"]').val(data.harga_promo);
-                $('[name="nama_produk"]').val(data.nama_produk);
-                $('[name="jenis_air"]').val(data.jenis_air);
-                $('[name="luas_bangunan"]').val(data.luas_bangunan);
-                $('[name="luas_tanah"]').val(data.luas_tanah);
-                $('[name="carport"]').val(data.carport);
-                $('[name="furnished"]').val(data.furnished);
-                $('[name="hook_pojok"]').val(data.hook_pojok);
-                $('[name="jumlah_tingkat"]').val(data.jumlah_tingkat);
-                $('[name="jumlah_kamar_mandi"]').val(data.jumlah_kamar_mandi);
-                $('[name="jumlah_kamar_tidur"]').val(data.jumlah_kamar_tidur);
-                $('[name="description"]').val(data.description);
-                $('[name="alamat"]').val(data.alamat);
-                $('[name="watt_listrik"]').val(data.watt_listrik);
-                $('[name="unit"]').val(data.unit);
-                $('[name="status_post"]').val(data.status_post);
-                $('[name="sertifikat"]').val(data.sertifikat);
-                $('[name="hadap"]').val(data.hadap);
-                $('[name="kategori"]').val(data.nama_category);
-                $('[name="prov"]').val(data.nama_prov);
-                $('[name="kabkot"]').val(data.nama_kabkot);
-                $('[name="kec"]').val(data.nama_kec);      
-                // $('#view_modal').modal('hide');
-                $('#detail_modal').modal('show');
-          },
-          error: function (jqXHR, textStatus, errorThrown)
-          {
-              alert('Error get data from ajax');
-          }
-        });
-    })
 
     function closing(id,tp,tipe) {
          $.ajax({
@@ -548,29 +551,54 @@
                 var html = '';
                 var i;
                 for(i=0; i<data.length; i++){
+                    var x = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data[i].harga);
+                    var y = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data[i].total);
                     html += "<tr>"+                                                
                         "<td>"+data[i].nama_produk+"</td>"+
                         "<td>"+data[i].nama_perusahaan+"</td>"+
                         "<td>"+data[i].jml_unit+"</td>"+
-                        "<td>"+data[i].harga+"</td>"+                        
-                        "<td>"+data[i].hrg+"</td>"+
+                        "<td>Rp. "+x+",-</td>"+                                            
+                        "<td>Rp. "+y+",-</td>"+                        
                         "<td>"+
-                        "<a href='javascript:;' class='btn btn-primary btn-sm item_detail' data='"+data[i].id_produk+"'><span class='mdi mdi-view-module'></span></a>&nbsp;"+
+                        "<button type='button' class='btn btn-primary btn-sm item_detail' onclick=\"detail(\'"+data[i].id_produk+"\')\" title='Detail'><span class='mdi mdi-receipt'></span></button>&nbsp;"+
                         "<a href='javascript:;' class='btn btn-success btn-sm item_deal' data='"+data[i].id_detail_transaksi+"' title='Edit Harga Deal'><span class='fas fa-edit'></span></a>"+
                         "</td>"+
                         "</tr>";
                     }
-                $('[name="prize"]').val(tp);
+                var ttp = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(tp);
+                $('[name="prize"]').val('Rp. '+ttp);
                 $('[name="tipe"]').val(tipe);
                 $('[name="id_transaksi"]').val(id);
-                $('#closing_modal').modal('show');
                 $('#show_close').html(html);                                
+                $('#closing_modal').modal('show');
 
             },
             error: function (jqXHR, textStatus, errorThrown){
                 alert('Error get data from ajax');
             }
-        });         
+        });     
+
+         $.ajax({
+            url : "<?php echo site_url('index.php/admin/penjualan/get_komisi/')?>" + id,
+            type: "GET",
+            dataType: "JSON",
+            success: function(data)
+            {   
+               var komisi_agen = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.komisi_agen);
+               var komisi_manajemen = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.komisi_manajemen);
+               var komisi_promosi = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.komisi_promosi);
+               $('[name="komisi_agen"]').val('+- ('+komisi_agen+')');
+               $('[name="komisi_manajemen"]').val('+- ('+komisi_manajemen+')');
+               $('[name="komisi_promosi"]').val('+- ('+komisi_promosi+')');
+               $('#closing_modal').modal('show');
+
+               console.log(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error get data from ajax');
+            }
+        });    
         // alert(id);
     }
 
@@ -584,9 +612,12 @@
           success: function(data)
           {                            
                 // console.log(data);
+                var x = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_bawah);
+
                 $('[name="deal"]').attr("min" , data.harga_bawah);
-                $('[name="hargabawah"]').val(data.harga_bawah);
+                $('[name="hargabawah"]').val('Rp. '+x);
                 $('[name="id_detail"]').val(idp);
+                $('[name="nmproperty"]').val(data.nama_produk);
                 $('#closing_modal').modal('hide');
                 $('#deal_modal').modal('show');
           },

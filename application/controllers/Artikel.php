@@ -1,17 +1,1 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Artikel extends CI_Controller {
-	function __construct(){
-        parent::__construct();
-        /*if ($this->session->userdata('ses_email') != true){
-        	redirect('index.php/login');
-        }*/
-    }
-	public function index()
-	{
-		$data['content'] = 'artikel';
-		$this->load->view('home', $data);
-	}
-}
-?>
+<?phpdefined('BASEPATH') OR exit('No direct script access allowed');class Artikel extends CI_Controller {	function __construct(){        parent::__construct();        /*if ($this->session->userdata('ses_email') != true){        	redirect('index.php/login');        }*/    }	public function index()	{		        $this->load->model('Martikel');		$data['newest'] = $this->Martikel->get()->result();		$data['content'] = 'artikel';		$this->load->view('home', $data);	}}?>

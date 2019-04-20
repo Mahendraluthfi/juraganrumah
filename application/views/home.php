@@ -190,43 +190,43 @@
                                 <ul class="footer-blog">
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
+                                            <a href="#">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date">15-04-2019</span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                            <h6> <a href="<?php echo base_url('artikel') ?>">Baca ini sebelum anda membeli rumah </a></h6> 
+                                           <!--  <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p> -->
                                         </div>
                                     </li> 
 
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
+                                            <a href="#">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date">15-04-2019</span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                            <h6> <a href="<?php echo base_url('artikel') ?>">Gaji kecil tapi ingin punya rumah </a></h6> 
+                                            <!-- <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p> -->
                                         </div>
                                     </li> 
 
                                     <li>
                                         <div class="col-md-3 col-sm-4 col-xs-4 blg-thumb p0">
-                                            <a href="single.html">
+                                            <a href="#">
                                                 <img src="assets/img/demo/small-proerty-2.jpg">
                                             </a>
-                                            <span class="blg-date">12-12-2016</span>
+                                            <span class="blg-date">15-04-2019</span>
 
                                         </div>
                                         <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
-                                            <h6> <a href="single.html">Add news functions </a></h6> 
-                                            <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p>
+                                            <h6> <a href="<?php echo base_url('artikel') ?>">Cara beli rumah tanpa riba </a></h6> 
+                                            <!-- <p style="line-height: 17px; padding: 8px 2px;">Lorem ipsum dolor sit amet, nulla ...</p> -->
                                         </div>
                                     </li> 
 

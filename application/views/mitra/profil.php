@@ -85,6 +85,12 @@
                                  <input type="text" readonly class="form-control-plaintext" value="<?php echo $mitra->atas_nama ?>">
                             </div>
                         </div>
+                         <div class="form-group row">
+                            <label for="fname" class="col-md-4 text-primary control-label col-form-label">Komisi</label>
+                            <div class="col-md-8">
+                                 <input type="text" readonly class="form-control-plaintext" value="<?php echo $mitra->komisi.' %'; ?>">
+                            </div>
+                        </div>
                     </div>
                     <div class="border-top">
                         <div class="card-body">

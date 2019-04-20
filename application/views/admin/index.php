@@ -245,10 +245,16 @@
                                 <span class="hide-menu">Data Survei</span>
                             </a>
                         </li> 
-                         <li class="sidebar-item <?php if($this->uri->segment(2) == "penjualan"){ echo 'selected'; } ?>">
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "penjualan"){ echo 'selected'; } ?>">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "penjualan"){ echo 'active'; } ?>" href="<?php echo base_url('admin/penjualan') ?>" aria-expanded="false">
                                 <i class="fas fa-dollar-sign"></i>
                                 <span class="hide-menu">Data Penjualan</span>
+                            </a>
+                        </li>                        
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "artikel"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "artikel"){ echo 'active'; } ?>" href="<?php echo base_url('admin/artikel') ?>" aria-expanded="false">
+                                <i class="mdi mdi-file-document-box"></i>
+                                <span class="hide-menu">Data Artikel</span>
                             </a>
                         </li>                        
                         <li class="sidebar-item">

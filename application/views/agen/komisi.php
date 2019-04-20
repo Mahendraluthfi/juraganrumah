@@ -34,7 +34,7 @@
                 <div class="box bg-info">
                    <h6 class="text-white">Pencairan saldo minimal Rp. 1.000.000</h6>
                    <h6 class="text-white">Proses pencairan memakan waktu 1x24 Jam</h6>
-                     <button type="button" class="btn btn-primary margin-5" data-toggle="modal" <?php if($agen->balance < 1000000){ echo 'data-target="#Modal2"'; }else{ echo 'data-target="#Modal1"'; } ?>>
+                     <button type="button" class="btn btn-primary margin-5" data-toggle="modal" <?php if(base64_decode($agen->balance < 1000000)){ echo 'data-target="#Modal2"'; }else{ echo 'data-target="#Modal1"'; } ?>>
                         Cairkan Saldo
                     </button>            
                 </div>
@@ -114,7 +114,7 @@
                         <div class="form-group row">
                             <label for="email1" class="col-sm-3 control-label col-form-label">Nominal</label>
                             <div class="col-sm-9">                                
-                                <input type="number" name="nominal" min="100000" class="form-control" placeholder="Masukkan Nominal">
+                                <input type="number" name="nominal" min="1000000" class="form-control" placeholder="Masukkan Nominal">
                             </div>
                         </div>                        
                     </div>
