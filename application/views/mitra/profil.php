@@ -148,13 +148,125 @@
        </div>
 </div>   
 
-    </div>
+</div>
     
 </div>            
+
+ <div class="modal fade" id="view_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document ">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Detail Projek</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true ">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Nama Projek</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="nama_project">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Jumlah Properti</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="jml">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Provinsi</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="prov">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Kabupaten/Kota</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="kabkot">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Kecamatan</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="kec">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="fname" class="col-sm-3 control-label col-form-label">Alamat</label>
+                    <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" name="alamat">
+                    </div>
+                </div>
+                <h5>Fasilitas Umum</h5>
+                <?php echo form_open('mitra/profil/save_poi'); ?>
+                <div class="form-group row">
+                    <div class="col-sm-9 text-right">
+                        <input type="text" name="remark" class="form-control" placeholder="Keunggulan Projek">
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <button type="submit" class="btn btn-default">Tambah</button>
+                    </div>
+                        <input type="hidden" name="id">
+                    <?php echo form_close(); ?>
+                </div>
+                <table class="table table-condensed table-hover">                    
+                    <tbody id="keunggulan">                        
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
      <?php echo $this->session->flashdata('error'); ?>
 
      function detail(id) {
-         
+          $.ajax({
+            url : "<?php echo site_url('index.php/mitra/profil/get_project/')?>" + id,
+            type: "GET",
+            dataType: "JSON",
+            success: function(data)
+            {        
+                $('[name="nama_project"]').val(data.nama_project);
+                $('[name="jml"]').val(data.jml);
+                $('[name="prov"]').val(data.nama_prov);
+                $('[name="kabkot"]').val(data.nama_kabkot);
+                $('[name="kec"]').val(data.nama_kec);                
+                $('[name="alamat"]').val(data.alamat);
+                $('[name="id"]').val(id);
+               
+                // console.log(data);
+            },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+        }); 
+        $.ajax({
+            url : "<?php echo site_url('index.php/mitra/profil/get_poi/')?>" + id,
+            type: "GET",
+            dataType: "JSON",
+            success: function(data)
+            {        
+                var html = '';
+                var i;
+                for(i=0; i < data.length; i++){                   
+                    html += "<tr>"+                                                
+                        "<td>"+data[i].remark+"</td>"+                        
+                        "<td class='text-right'><a class='btn btn-danger btn-sm' href='<?php echo base_url('mitra/profil/del_poi/') ?>"+data[i].id+"'><i class='fas fa-trash'></i></a></td>"+                        
+                        "</tr>";
+                    }
+                $('#keunggulan').html(html);      
+                $('#view_modal').modal('show');
+                // console.log(data);
+            },
+        error: function (jqXHR, textStatus, errorThrown)
+        {
+            alert('Error get data from ajax');
+        }
+        }); 
      }
 </script>

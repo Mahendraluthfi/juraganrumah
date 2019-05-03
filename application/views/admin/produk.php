@@ -211,7 +211,7 @@
                 <div class="form-group row">
                     <label for="lname" class="col-sm-3 control-label col-form-label">Deskripsi</label>
                     <div class="col-sm-9">
-                        <input type="text" readonly class="form-control-plaintext" name="description">
+                        <p class="description"></p>                        
                     </div>                                        
                 </div>
                 <div class="form-group row">
@@ -253,7 +253,8 @@
                 $('[name="jumlah_tingkat"]').val(data.jumlah_tingkat);
                 $('[name="jumlah_kamar_mandi"]').val(data.jumlah_kamar_mandi);
                 $('[name="jumlah_kamar_tidur"]').val(data.jumlah_kamar_tidur);
-                $('[name="description"]').val(data.description);
+                // $('[name="description"]').val(data.description);
+                $('.description').text(data.description);                
                 $('[name="alamat"]').val(data.alamat);
                 $('[name="watt_listrik"]').val(data.watt_listrik);
                 $('[name="unit"]').val(data.unit);

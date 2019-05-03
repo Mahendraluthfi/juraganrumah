@@ -115,12 +115,12 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo base_url() ?>assets/backend/assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                <!-- <div class="dropdown-divider"></div> -->
+                                <a class="dropdown-item" href="<?php echo base_url('mitra/setting') ?>"><i class="ti-settings m-r-5 m-l-5"></i> Setting Akun</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('mitra/login/logout') ?>"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                                <div class="dropdown-divider"></div>
-                                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                                <!-- <div class="dropdown-divider"></div>
+                                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div> -->
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -193,7 +193,7 @@
                                 <li class="sidebar-item"><a href="<?php echo base_url('mitra/transaksi') ?>" class="sidebar-link"><i class="mdi mdi-transfer"></i><span class="hide-menu"> Transaksi </span></a></li>
                                 <li class="sidebar-item"><a href="<?php echo base_url('mitra/saldo') ?>" class="sidebar-link"><i class="fas fa-dollar-sign"></i><span class="hide-menu"> Saldo </span></a></li>
                                 <li class="sidebar-item"><a href="<?php echo base_url('mitra/penjualan') ?>" class="sidebar-link"><i class="fas fa-shopping-cart"></i><span class="hide-menu"> Penjualan </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-watch"></i><span class="hide-menu"> Survei </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo base_url('mitra/survei') ?>" class="sidebar-link"><i class="mdi mdi-watch"></i><span class="hide-menu"> Survei </span></a></li>
                                 <!-- <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-users"></i><span class="hide-menu"> Buyer </span></a></li> -->
                             </ul>
                         </li>                                                                

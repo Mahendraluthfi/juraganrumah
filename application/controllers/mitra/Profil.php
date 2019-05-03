@@ -10,6 +10,23 @@ class Profil extends CI_Controller {
 	    {	     
 	        redirect('mitra/login');
 	    }	    
+
+	    if ($this->session->userdata('status_akun') == "EXPIRED") {
+	    	 $this->session->set_flashdata('error', '
+	            	$(document).ready(function(){
+	            		toastr.error("Silahkan Uprade Menjadi Mitra Developer Pro", "Status Expired");
+	            		});
+	            	');
+	            redirect('mitra/upgrade','refresh');
+	    }
+	     if ($this->session->userdata('confirm') == "YES") {	    	
+	    	 $this->session->set_flashdata('error', '
+	            	$(document).ready(function(){
+	            		toastr.error("Silahkan Lakukan Konfirmasi Pembayaran", "Akses ditolak");
+	            		});
+	            	');
+	            redirect('mitra/transaksi','refresh');
+	    }
 	}
 
 
@@ -101,7 +118,34 @@ class Profil extends CI_Controller {
 
 	}
 	
+	public function get_project($id)
+	{
+		$data = $this->db->query("SELECT project.*, prov.nama_prov, kabkot.nama_kabkot, kec.nama_kec, (SELECT count(id_produk) FROM produk WHERE id_project = project.id_project) as jml FROM project JOIN prov ON project.prov = prov.id_prov JOIN kabkot ON project.kabkot = kabkot.id_kabkot JOIN kec ON project.kec = kec.id_kec WHERE project.id_project='$id'")->row();
+		echo json_encode($data);
+	}
 
+	public function get_poi($id)
+	{
+		$data = $this->db->get_where('project_poi', array('id_project' => $id))->result();
+		echo json_encode($data);
+	}
+
+	public function save_poi()
+	{
+		$this->db->insert('project_poi', array(
+			'id_project' => $this->input->post('id'),
+			'remark' => $this->input->post('remark')
+		));
+		redirect('mitra/profil','refresh');
+	}
+
+	public function del_poi($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete('project_poi');
+		redirect('mitra/profil','refresh');
+
+	}
 }	
 
 /* End of file Profil.php */

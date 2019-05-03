@@ -145,7 +145,7 @@ body {
 				<h1>Oops!</h1>
 				<h2>404 - Halaman Tidak Ditemukan</h2>
 			</div>
-			<a href="<?php echo base_url() ?>">Kembali ke Beranda</a>
+			<a href="javascript:history.go(-1)">Kembali ke Beranda</a>
 		</div>
 	</div>
 

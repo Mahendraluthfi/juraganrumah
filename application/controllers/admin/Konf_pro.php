@@ -56,6 +56,7 @@ class Konf_pro extends CI_Controller {
 		$this->db->where('id_mitra', $cek->id_mitra);
 		$this->db->update('mitra', array(
 			'status_akun' => 'PRO', 
+			'cek_bayar' => '1', 
 			'expired_premium' => $expired, 
 			'saldo' => $encode_saldo
 		));

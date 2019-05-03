@@ -19,29 +19,35 @@
                     <div class="" id="contact1">                        
                         <div class="row">
                             <div class="col-sm-4">
-                                <h3><i class="fa fa-map-marker"></i> Address</h3>
-                                <p>13/25 New Avenue
-                                    <br>New Heaven
-                                    <br>45Y 73J
-                                    <br>England
+                                <h3> Sampaikan ide/ saran/ pertanyaan Anda langsung kepada Kami</h3>
+                                <p><i class="fa fa-map-marker"></i> WISMA PURBA DANARTA
+                                    <br> Jl. Veteran No. VII
+                                    <br> Semarang
+                                    <br> Jawa Tengah
                                     <br>
-                                    <strong>Great Britain</strong>
+                                    <strong>Indonesia</strong>
                                 </p>
+                                 <i class="fa fa-envelope"></i><strong> <a href="mailto:info@juraganrumah.net">info@juraganrumah.net</a></strong>   
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><i class="fa fa-phone"></i> Call center</h3>
-                                <p class="text-muted">This number is toll free if calling from Great Britain otherwise we advise you to use the electronic form of communication.</p>
-                                <p><strong>+33 555 444 333</strong></p>
+                                <h3> Kontak Kantor</h3>
+                                <p class="text-muted">Untuk menghubungi Kami melalui telpon lokal silahkan kontak ke</p>
+                                <i class="fa fa-phone"></i><strong>   +6224 831-4793 Ext. 208</strong>
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
-                                <h3><i class="fa fa-envelope"></i> Electronic support</h3>
-                                <p class="text-muted">Please feel free to write an email to us or to use our electronic ticketing system.</p>
+                                <h3> Whatsapp/Telegram - 24/7</h3>
+                                <p class="text-muted">Untuk menghubungi Kami melalui Whatsapp silahkan ke</p>
                                 <ul>
-                                    <li><strong><a href="mailto:">info@fakeemail.com</a></strong>   </li>
-                                    <li><strong><a href="#">Ticketio</a></strong> - our ticketing support platform</li>
+                                   <p><i class="fa fa-whatsapp"></i> 0821 3507 7987
+                                   <br><i class="fa fa-whatsapp"></i> 0811 9475 777
+                    
+                                   <br><i img src="<?php echo base_url(); ?>assets/img/social_big/telegram.png"></i> 
+                                   <h6> Telegram: @OfficialJuraganRumah </h6>
+                                   </p>
                                 </ul>
+
                             </div>
                             <!-- /.col-sm-4 -->
                         </div>
@@ -49,17 +55,18 @@
                        
                         <hr>
                         <h2>Contact form</h2>
+                        <br>
                         <form>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="firstname">Firstname</label>
-                                        <input type="text" class="form-control" id="firstname">
+                                        <label for="firstname">Nama Pertama</label>
+                                        <input type="text" name="nama_pertama"class="form-control"  placeholder="Nama Pertama" required="">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="lastname">Lastname</label>
+                                        <label for="lastname">Nama Terakhir</label>
                                         <input type="text" class="form-control" id="lastname">
                                     </div>
                                 </div>
@@ -71,18 +78,18 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="subject">Subject</label>
+                                        <label for="subject">Subyek</label>
                                         <input type="text" class="form-control" id="subject">
                                     </div>
                                 </div>
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="message">Message</label>
+                                        <label for="message">Pesan</label>
                                         <textarea id="message" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 text-center">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send message</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Kirim Pesan</button>
                                 </div>
                             </div>
                             <!-- /.row -->
@@ -99,87 +106,17 @@
                             </div>
                             <div class="panel-body recent-property-widget">
                                 <ul>
-                                    <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-1.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-3.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div>
-                                    </li>
-
-                                    <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div>
-                                    </li>
-                                    
-                                    <li>
-                                        <div class="col-md-3 blg-thumb p0">
-                                            <a href="single.html"><img src="assets/img/demo/small-property-2.jpg"></a>
-                                            <span class="property-seeker">
-                                                <b class="b-1">A</b>
-                                                <b class="b-2">S</b>
-                                            </span>
-                                        </div>
-                                        <div class="col-md-8 blg-entry">
-                                            <h6> <a href="single.html">Super nice villa </a></h6>
-                                            <span class="property-price">3000000$</span>
-                                        </div>
-                                    </li>
+                                     <?php foreach ($newest_produk as $data) { ?>
+                                        <li>
+                                            <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
+                                                <a href=""><img src="assets/backend/fotoproduk/<?php echo $data->file ?>"></a>
+                                            </div>
+                                            <div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="margin-top: -9px;">
+                                                <h6> <a href="<?php echo site_url() ?>properti_detail?id_produk=<?php echo $data->id_produk?>&nama_produk=<?php echo $data->nama_produk?>" title="<?php echo $data->nama_produk ?>"><?php echo substr($data->nama_produk, 0, 15).'...' ?></a></h6>
+                                                <span class="property-price"><?php echo 'Rp. '.number_format($data->harga) ?></span>
+                                            </div>
+                                        </li>
+                                        <?php } ?>
                                 </ul>
                             </div>
                         </div>
@@ -187,4 +124,5 @@
                 </div>            
             </div>
         </div>
-         <div id="map" style="height: 400px;"></div>
+         <!--<div id="map" style="height: 400px;"></div>-->
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d907.8586565502552!2d110.41448409088866!3d-6.996335160633784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b67f88fe863%3A0x837da69882d652a4!2sWisma+Purba+Danarta!5e0!3m2!1sid!2sid!4v1555730879806!5m2!1sid!2sid" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>

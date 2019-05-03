@@ -28,9 +28,9 @@
                         <div class="col-md-6">
                         <div class="card card-hover">
                             <div class="box bg-cyan text-center">
-                                <h1 class="font-light text-white"><i class="mdi mdi-account-card-details"></i></h1>
-                                <h6 class="text-white"><?php echo $row->username ?></h6>
-                                <a href="<?php echo $url ?>" target="_blank" class="btn btn-default"><?php echo $url ?></a>
+                                <h1 class="font-light text-white"><i class="mdi mdi-account-card-details"></i> <?php echo $row->username ?></h1>                                                                
+                                    <input type="text" readonly class="form-control text-center" value="<?php echo $url ?>" id="pilih"><br>                                                                        
+                                    <span><button type="button" onclick="copybtn()" class="btn btn-warning btn-md"><i class="far fa-copy"></i> Copy Link Affiliasi</button></span>                                
                             </div>
                         </div>
                     </div>
@@ -40,9 +40,19 @@
                         <?php echo $status; ?>
                     </div>
                     
+                    </div>                    
+                      <div class="alert alert-success text-center" role="alert">
+                      <h3 class="alert-heading">Keuntungan menjadi Agen Premium</h3><hr>
+                        <div class="alert alert-danger" role="alert">
+                            <h4>Produk Penjualan Tidak Terbatas</h4>                        
+                        </div>
+                        <div class="alert alert-danger" role="alert">
+                            <h4>Penghasilan Jauh Lebih Besar</h4>
+                        </div>
+                        <div class="alert alert-danger" role="alert">
+                            <h4>Prioritas Penjualan</h4>            
+                        </div>                        
                     </div>
-                    <h5 class="card-title">Keuntungan bergabung menjadi Agen Premium</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
             </div>
         </div>
@@ -202,4 +212,9 @@
     }
 
      <?php echo $this->session->flashdata('error'); ?>
+     function copybtn() {
+        document.getElementById("pilih").select();
+        document.execCommand("copy");
+        // toastr.success('Text disalin', 'Berhasil');
+    }
 </script>

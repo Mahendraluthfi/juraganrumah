@@ -1,0 +1,11 @@
+.box{
+	 width:250px;
+	 min-height:100px;
+	 max-height:100px;
+	 display: inline-block;
+	 margin-left: 10px;
+	}
+.size-img{
+	min-height:60px;
+    max-height:60px;
+}

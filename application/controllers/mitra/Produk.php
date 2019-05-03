@@ -10,6 +10,22 @@ class Produk extends CI_Controller {
 	    {	     
 	        redirect('mitra/login');
 	    }
+	    if ($this->session->userdata('status_akun') == "EXPIRED") {
+	    	 $this->session->set_flashdata('error', '
+	            	$(document).ready(function(){
+	            		toastr.error("Silahkan Uprade Menjadi Mitra Developer Pro", "Status Expired");
+	            		});
+	            	');
+	            redirect('mitra/upgrade','refresh');
+	    }
+	     if ($this->session->userdata('confirm') == "YES") {	    	
+	    	 $this->session->set_flashdata('error', '
+	            	$(document).ready(function(){
+	            		toastr.error("Silahkan Lakukan Konfirmasi Pembayaran", "Akses ditolak");
+	            		});
+	            	');
+	            redirect('mitra/transaksi','refresh');
+	    }
 	    $this->load->model('Mproduk_mitra');
 	}
 
@@ -144,6 +160,7 @@ class Produk extends CI_Controller {
 			'jenis_air' => $post['jenis_air'],
 			'hadap' => $post['hadap'],
 			'carport' => $post['carport'],
+			'sertifikat' => $post['sertifikat'],
 			'description' => $post['deskripsi'],
 			'status_post' => $post['status'],
 			'provinsi' => $get->prov,
@@ -181,6 +198,7 @@ class Produk extends CI_Controller {
 			'carport' => $post['carport'],
 			'status_post' => $post['status'],
 			'description' => $post['deskripsi'],
+			'sertifikat' => $post['sertifikat'],			
 			'provinsi' => $get_all->prov,
 			'kabupaten' => $get_all->kabkot,
 			'kecamatan' => $get_all->kec,

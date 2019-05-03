@@ -100,7 +100,7 @@
             success: function(data)
             {   
                 $('.judul').text(data.judul);
-                $('.isi').text(data.isi);
+                $('.isi').html(data.isi);
                 $('.foto').attr("src","<?php echo base_url('assets/backend/fotoartikel/') ?>"+data.foto);
                 $('#view_modal').modal('show');
                 

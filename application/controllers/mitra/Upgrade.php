@@ -30,14 +30,36 @@ class Upgrade extends CI_Controller {
                 </div>
             </div>';	
 		}elseif($cek->status_akun == "PRO"){
-			$date_exp = date_create($cek->expired_premium);
-			$date_now = date_create(date('Y-m-d'));
-			$diff = date_diff($date_now,$date_exp);
+			if ($cek->cek_bayar == 0) {
+				$date_exp = date_create($cek->expired_premium);
+				$date_now = date_create(date('Y-m-d'));
+				$diff = date_diff($date_now,$date_exp);
+				$data['status']	 = '<div class="card card-hover">
+	                <div class="box bg-warning text-center">                    
+	                    <h1 class="font-light text-white"><i class="mdi mdi-star-circle"></i> PRO</h1>
+	                    <h6 class="text-white">Batas Pembayaran '.date('d M Y', strtotime($cek->expired_premium)).'</h6>
+	                    <a href="'.base_url('mitra/transaksi').'" class="btn btn-info">Konfirmasi Pembayaran</a>
+	                </div>
+	            </div>';					
+			}else{
+				$date_exp = date_create($cek->expired_premium);
+				$date_now = date_create(date('Y-m-d'));
+				$diff = date_diff($date_now,$date_exp);
+				$data['status']	 = '<div class="card card-hover">
+	                <div class="box bg-success text-center">                    
+	                    <h1 class="font-light text-white"><i class="mdi mdi-star-circle"></i> PRO</h1>
+	                    <h6 class="text-white">Berakhir pada '.date('d M Y', strtotime($cek->expired_premium)).'</h6>
+	                    
+	                </div>
+	            </div>';					
+			}
+
+		}else{
 			$data['status']	 = '<div class="card card-hover">
-                <div class="box bg-success text-center">                    
-                    <h1 class="font-light text-white"><i class="mdi mdi-star-circle"></i> PRO</h1>
-                    <h6 class="text-white">Berakhir pada '.date('d M Y', strtotime($cek->expired_premium)).'</h6>
-                    <a href="#" class="btn btn-info">Tambah Project</a>
+                <div class="box bg-danger text-center">                    
+                    <h1 class="font-light text-white"><i class="mdi mdi-star-circle"></i> EXPIRED</h1>
+                    <h6 class="font-light text-white">Kami memberikan anda kesempatan 14 hari kedepan untuk Upgrade menjadi Mitra Pro</h6>                    
+                    <a href="'.base_url('mitra/upgrade/checkout/trial').'" class="btn btn-success">Upgrade Pro</a>
                 </div>
             </div>';	
 		}
@@ -76,7 +98,7 @@ class Upgrade extends CI_Controller {
             $data['qty'] = '1';
         	}
 		}else{
-
+			redirect('upgrade','refresh');
 		}
 		$data['row'] = $cek;		
 		$data['inv'] = $this->session->userdata('inv');		

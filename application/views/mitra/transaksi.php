@@ -84,20 +84,20 @@
                         <div class="form-group row">
                             <label for="fname" class="col-sm-3 control-label col-form-label">Nama Bank</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="namabank" placeholder="Nama Bank" value="<?php echo $row->nama_bank ?>" readonly>
+                                <input type="text" class="form-control" name="namabank" placeholder="Nama Bank" value="<?php echo $row->nama_bank ?>" >
                                 <input type="hidden" name="inv">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lname" class="col-sm-3 control-label col-form-label">No Rekening</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="norek" placeholder="Nomor Rekening" value="<?php echo $row->no_rekening ?>" readonly>
+                                <input type="text" class="form-control" name="norek" placeholder="Nomor Rekening" value="<?php echo $row->no_rekening ?>" >
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="lname" class="col-sm-3 control-label col-form-label">Atas Nama</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" name="atasnama" placeholder="Atas Nama" value="<?php echo $row->atas_nama ?>" readonly>                                
+                                <input type="text" class="form-control" name="atasnama" placeholder="Atas Nama" value="<?php echo $row->atas_nama ?>" >                                
                             </div>
                         </div>
                         <div class="form-group row">

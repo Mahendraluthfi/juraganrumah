@@ -26,7 +26,7 @@
         <div class="col-md-12">            
             <div class="card">
                 <div class="card-body">
-                    <div class="row">
+                    <!-- <div class="row">
                         <form action="<?php echo base_url('mitra/penjualan/cari') ?>" method="POST" class="form-inline" role="form">                        
                             <label for="">Periode Tanggal &nbsp;</label>                            
                             <div class="form-group">                                
@@ -35,7 +35,7 @@
                             </div>&nbsp;
                             <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Cari</button>
                         </form>
-                    </div><hr>
+                    </div><hr> -->
                     <div class="row">
                         <table class="table table-bordered table-hover" id="zero_config">
                             <thead>

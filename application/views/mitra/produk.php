@@ -245,12 +245,16 @@
             dataType: "JSON",
             success: function(data)
             {   
+                var harga = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga);
+                var harga_bawah = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_bawah);
+                var harga_promo = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_promo);
+                
                 $('.modal-title').text('Detail Produk');
                 $('[name="id_produk"]').val(data.id_produk);
-                $('[name="harga"]').val(data.harga);
+                $('[name="harga"]').val('Rp. '+harga);
                 $('[name="project"]').val(data.nama_project);
-                $('[name="harga_bawah"]').val(data.harga_bawah);
-                $('[name="harga_promo"]').val(data.harga_promo);
+                $('[name="harga_bawah"]').val('Rp. '+harga_bawah);
+                $('[name="harga_promo"]').val('Rp. '+harga_promo);
                 $('[name="nama_produk"]').val(data.nama_produk);
                 $('[name="jenis_air"]').val(data.jenis_air);
                 $('[name="luas_bangunan"]').val(data.luas_bangunan);

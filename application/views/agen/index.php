@@ -76,7 +76,7 @@
                         <!-- ============================================================== -->
                         <!-- create new -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
                              <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
@@ -87,7 +87,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- ============================================================== -->
                         <!-- Search -->
                         <!-- ============================================================== -->
@@ -104,7 +104,7 @@
                         <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
+                       <!--  <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
                             </a>
                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -113,21 +113,21 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Something else here</a>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- ============================================================== -->
                         <!-- End Comment -->
                         <!-- ============================================================== -->
                         <!-- ============================================================== -->
                         <!-- Messages -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown">
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
                                 <ul class="list-style-none">
                                     <li>
                                         <div class="">
-                                             <!-- Message -->
+                                             
                                             <a href="javascript:void(0)" class="link border-top">
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
@@ -137,7 +137,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <!-- Message -->
+                                            
                                             <a href="javascript:void(0)" class="link border-top">
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
@@ -147,7 +147,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <!-- Message -->
+                                            
                                             <a href="javascript:void(0)" class="link border-top">
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
@@ -157,7 +157,7 @@
                                                     </div>
                                                 </div>
                                             </a>
-                                            <!-- Message -->
+                                            
                                             <a href="javascript:void(0)" class="link border-top">
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
@@ -171,7 +171,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> -->
                         <!-- ============================================================== -->
                         <!-- End Messages -->
                         <!-- ============================================================== -->
@@ -227,14 +227,14 @@
                                 <span class="hide-menu">Upgrade</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false">
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "produk"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "produk"){ echo 'active'; } ?>" href="<?php echo base_url('agen/produk') ?>" aria-expanded="false">
                                 <i class="mdi mdi-shopping"></i>
                                 <span class="hide-menu">Produk</span>
                             </a>
                         </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false">
+                        <li class="sidebar-item <?php if($this->uri->segment(2) == "statistik"){ echo 'selected'; } ?>">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "statistik"){ echo 'active'; } ?>" href="<?php echo base_url('agen/statistik') ?>" aria-expanded="false">
                                 <i class="mdi mdi-chart-arc"></i>
                                 <span class="hide-menu">Statistik</span>
                             </a>
@@ -252,8 +252,8 @@
                             </a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="<?php echo base_url('agen/komisi') ?>" class="sidebar-link"><i class=" fas fa-dollar-sign"></i><span class="hide-menu"> Komisi </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-user-circle"></i><span class="hide-menu"> Sub Agen </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="fas fa-users"></i><span class="hide-menu"> Buyer </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo base_url('agen/sub_agen') ?>" class="sidebar-link"><i class="fas fa-user-circle"></i><span class="hide-menu"> Sub Agen </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo base_url('agen/buyer') ?>" class="sidebar-link"><i class="fas fa-users"></i><span class="hide-menu"> Buyer </span></a></li>
                             </ul>
                         </li>                                                                
                     </ul>
@@ -307,16 +307,7 @@
     <script src="<?php echo base_url() ?>assets/backend/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url() ?>assets/backend/dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="<?php echo base_url() ?>assets/backend/dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <!-- <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/excanvas.js"></script>
-    <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/jquery.flot.js"></script>
-    <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/jquery.flot.pie.js"></script>
-    <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/jquery.flot.time.js"></script>
-    <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/jquery.flot.stack.js"></script>
-    <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="<?php echo base_url() ?>assets/backend/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script> -->
+    
     <script src="<?php echo base_url() ?>assets/backend/dist/js/pages/chart/chart-page-init.js"></script>
     <!-- wizard -->
     <script src="<?php echo base_url() ?>assets/backend/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>

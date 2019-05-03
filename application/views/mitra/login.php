@@ -64,13 +64,15 @@
 						</div>							
 					</div>
 
-					<div class="text-center p-t-40">
+					<div class="text-center p-t-38">
 						<span class="txt1">
 							Belum terdaftar Mitra Developer ?
 						</span>
-
-						<a class="txt2" href="#">
+						<a class="txt2" href="<?php echo base_url('kemitraan') ?>" target="_blank">
 							Daftar
+						</a><br>
+						<a class="txt2" href="<?php echo base_url('mitra/forgotpassword') ?>">
+							Lupa Password ?
 						</a>
 					</div>
 				<?php echo form_close(); ?>

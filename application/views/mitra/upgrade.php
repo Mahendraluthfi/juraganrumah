@@ -30,7 +30,7 @@
                             <div class="box bg-cyan text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-account-card-details"></i></h1>
                                 <h6 class="text-white"><?php echo $mitra->nama_perusahaan ?></h6>
-                                <a href="<?php echo base_url('mitra/profil') ?>" target="_blank" class="btn btn-danger">Profil</a>
+                                <a href="<?php echo base_url('mitra/profil') ?>" class="btn btn-danger">Profil</a>
                             </div>
                         </div>
                     </div>
@@ -40,8 +40,8 @@
                         <div class="card card-hover">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="mdi mdi-home-map-marker"></i></h1>
-                                <h5 class="text-white"><?php echo $project ?> Project</h5>
-                                <button type="button" class="btn btn-danger">Detail</button>
+                                <h5 class="text-white"><?php echo $project ?> Projek</h5>
+                                <a href="<?php echo base_url('mitra/profil') ?>" class="btn btn-danger">Detail</a>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,26 @@
     </div> -->
     <div class="alert alert-success text-center" role="alert">
       <h3 class="alert-heading">Keuntungan menjadi Mitra Developer Pro</h3><hr>
-      
+        <div class="alert alert-danger" role="alert">
+            <h4>Gratis Biaya Pembuatan Website</h4>
+            <span><strike>Rp 15.000.000,00</strike></span>  
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <h4>Gratis Biaya Customer Service</h4>
+            <span><strike>Rp 2.500.000,00</strike>/bulan atau <strike>Rp 30.000.000,00</strike>/tahun</span>
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <h4>Gratis Biaya Agen Penjualan</h4>
+            <span><strike>Rp 1.000.000,00</strike>/bulan atau <strike>Rp 12.000.000,00</strike>/tahun</span>            
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <h4>Gratis Biaya Pembinaan Agen</h4>
+            <span><strike>Rp 5.000.000,00 </strike>/ Event</span>              
+        </div>
+        <div class="alert alert-danger" role="alert">
+            <h4>Gratis Biaya Promosi</h4>
+            <span><strike>Rp 10.000.000.000,00</strike></span>              
+        </div>
     </div>
     
 </div>            

@@ -48,7 +48,7 @@ class Artikel extends CI_Controller {
         $config['max_size']             = 2048;
         $config['max_width']            = 1900;
         $config['max_height']           = 1200;
-        $config['file_name'] 			= $nmfile;         
+        $config['encrypt_name']         = true;                           
 
         $this->load->library('upload', $config);
 
@@ -71,7 +71,7 @@ class Artikel extends CI_Controller {
 					'datetime' => date('Y-m-d H:i:s'),
 					'judul' => $this->input->post('judul'),
 					'isi' => $this->input->post('isi'),					
-					'foto' => $tmpname1,
+					'foto' => $this->upload->file_name,
 					'author' => 'Admin'
 				);
 
@@ -102,7 +102,7 @@ class Artikel extends CI_Controller {
         $config['max_size']             = 2048;
         $config['max_width']            = 1900;
         $config['max_height']           = 1200;
-        $config['file_name'] 			= $nmfile;         
+        $config['encrypt_name']         = true;             
 
         $this->load->library('upload', $config);
 
@@ -118,17 +118,15 @@ class Artikel extends CI_Controller {
 	            	');
 	            redirect('admin/artikel','refresh');
 	        }else{
-	            $data = $this->upload->data();
-	            $tmpname1 = $data['file_name'];	            
+	            $data = $this->upload->data();	            
 
 				$data = array(					
 					'judul' => $this->input->post('judul'),
 					'isi' => $this->input->post('isi'),					
-					'foto' => $tmpname1,
-					
+					'foto' => $this->upload->file_name					
 				);
 
-				$this->db->where('id_artikel', $this->input->post('isi'));
+				$this->db->where('id_artikel', $this->input->post('id'));
 				$this->db->update('artikel', $data);
 				// $this->db->insert('artikel', $data);
 
@@ -151,6 +149,13 @@ class Artikel extends CI_Controller {
 
 	public function hapus($id)
 	{
+		$get = $this->db->get_where('artikel', array('id_artikel' => $id))->row();
+
+		$target = './assets/backend/fotoartikel/'.$get->foto;
+		if (file_exists($target)) {
+			unlink($target);
+		}
+
 		$this->db->where('id_artikel', $id);
 		$this->db->delete('artikel');
 

@@ -1,24 +1,52 @@
 <?php
 
+
+
     class M_buyer_produk extends CI_Model{
+
+
 
 		function __construct(){
 
+
+
 		parent::__construct();	
+
+
 
 		/*if ($this->session->userdata('ses_email') != true){
 
+
+
         	redirect('index.php/login');
+
+
 
         }*/
 
+        
+
 	}
 
-		function tampil_data_produk()
+
+
+
+
+		  function adding($data,$table)
+
+		  {
+
+		    $this->db->insert($table,$data);
+
+		  }
+
+
+
+		function tampil_data_produk_terbaik()
 
         {
 
-			$limit = 7;
+			$limit = 5;
 
 			$this->db->select('*');
 
@@ -26,7 +54,11 @@
 
             $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
+			$this->db->where('produk.harga_promo > ', 0);
+
 			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
 
             $this->db->limit($limit);
 
@@ -36,11 +68,167 @@
 
 		}
 
-		function tampil_data_produk_rumah()
+		function tampil_data_produk_rumah_beranda()
 
         {
 
-			$id_category_produk = $this->input->get('id_category');
+			$limit = 3;
+
+			$this->db->select('*');
+
+            $this->db->from('produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->where('produk.id_category_produk', 1);
+
+			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
+
+            $this->db->limit($limit);
+
+			$db = $this->db->get();
+
+			return $db;
+
+		}
+
+		function tampil_data_produk_rumah_subsidi_beranda()
+
+        {
+
+			$limit = 3;
+
+			$this->db->select('*');
+
+            $this->db->from('produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->where('produk.id_category_produk', 6);
+
+			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
+
+            $this->db->limit($limit);
+
+			$db = $this->db->get();
+
+			return $db;
+
+		}
+
+		function tampil_data_produk_kost_beranda()
+
+        {
+
+			$limit = 3;
+
+			$this->db->select('*');
+
+            $this->db->from('produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->where('produk.id_category_produk', 7);
+
+			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
+
+            $this->db->limit($limit);
+
+			$db = $this->db->get();
+
+			return $db;
+
+		}
+
+		function tampil_data_produk_apartement_beranda()
+
+        {
+
+			$limit = 3;
+
+			$this->db->select('*');
+
+            $this->db->from('produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->where('produk.id_category_produk', 5);
+
+			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
+
+            $this->db->limit($limit);
+
+			$db = $this->db->get();
+
+			return $db;
+
+		}
+
+		function tampil_data_produk_kavling_beranda()
+
+        {
+
+			$limit = 3;
+
+			$this->db->select('*');
+
+            $this->db->from('produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->where('produk.id_category_produk', 3);
+
+			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
+
+            $this->db->limit($limit);
+
+			$db = $this->db->get();
+
+			return $db;
+
+		}
+
+		function tampil_data_produk_ruko_beranda()
+
+        {
+
+			$limit = 3;
+
+			$this->db->select('*');
+
+            $this->db->from('produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->where('produk.id_category_produk', 8);
+
+			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
+
+            $this->db->limit($limit);
+
+			$db = $this->db->get();
+
+			return $db;
+
+		}
+
+		function tampil_data_produk()
+
+        {
+
+			$limit = 5;
 
 			$this->db->select('*');
 
@@ -50,123 +238,205 @@
 
 			$this->db->group_by('produk.id_produk');
 
-            $this->db->where('produk.id_category_produk', $id_category_produk);
+			$this->db->order_by('produk.id','DESC');
+
+            $this->db->limit($limit);
 
 			$db = $this->db->get();
 
 			return $db;
 
-        }
+		}
 
-        function tampil_data_produk_apartement()
+
+
+		function tampil_data_produk_rumah($limit, $start)
+
+
 
         {
 
-			$id_category_produk = $this->input->get('id_category');
-
 			$this->db->select('*');
-
-            $this->db->from('produk');
 
             $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
+			$this->db->where('produk.id_category_produk', 1);
+
 			$this->db->group_by('produk.id_produk');
 
-            $this->db->where('produk.id_category_produk', $id_category_produk);
+			$this->db->order_by('produk.id','DESC');
 
-			$db = $this->db->get();
+			$db = $this->db->get('produk', $limit, $start);
 
 			return $db;
 
         }
 
-        function tampil_data_produk_kavling()
+
+
+        function tampil_data_produk_apartement($limit, $start)
 
         {
 
-			$id_category_produk = $this->input->get('id_category');
-
 			$this->db->select('*');
-
-            $this->db->from('produk');
 
             $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
+			$this->db->where('produk.id_category_produk', 5);
+
 			$this->db->group_by('produk.id_produk');
 
-            $this->db->where('produk.id_category_produk', $id_category_produk);
+			$this->db->order_by('produk.id','DESC');
 
-			$db = $this->db->get();
+			$db = $this->db->get('produk', $limit, $start);
 
 			return $db;
 
         }
 
-        function tampil_data_produk_ruko()
+
+
+        function tampil_data_produk_kavling($limit, $start)
 
         {
 
-			$id_category_produk = $this->input->get('id_category');
-
 			$this->db->select('*');
-
-            $this->db->from('produk');
 
             $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
+			$this->db->where('produk.id_category_produk', 3);
+
 			$this->db->group_by('produk.id_produk');
 
-            $this->db->where('produk.id_category_produk', $id_category_produk);
+			$this->db->order_by('produk.id','DESC');
 
-			$db = $this->db->get();
+			$db = $this->db->get('produk', $limit, $start);
 
 			return $db;
 
         }
 
-        function tampil_data_produk_kost()
+
+
+        function tampil_data_produk_ruko($limit, $start)
+
+
 
         {
 
-			$id_category_produk = $this->input->get('id_category');
-
 			$this->db->select('*');
-
-            $this->db->from('produk');
 
             $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
+			$this->db->where('produk.id_category_produk', 8);
+
 			$this->db->group_by('produk.id_produk');
 
-            $this->db->where('produk.id_category_produk', $id_category_produk);
+			$this->db->order_by('produk.id','DESC');
 
-			$db = $this->db->get();
+			$db = $this->db->get('produk', $limit, $start);
 
 			return $db;
 
         }
 
-        function tampil_data_produk_subsidi()
+
+
+        function tampil_data_produk_kost($limit, $start)
 
         {
 
-			$id_category_produk = $this->input->get('id_category');
-
 			$this->db->select('*');
-
-            $this->db->from('produk');
 
             $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
+			$this->db->where('produk.id_category_produk', 7);
+
 			$this->db->group_by('produk.id_produk');
 
-            $this->db->where('produk.id_category_produk', $id_category_produk);
+			$this->db->order_by('produk.id','DESC');
+
+			$db = $this->db->get('produk', $limit, $start);
+
+			return $db;
+
+        }
+
+
+
+        function tampil_data_produk_subsidi($limit, $start)
+
+        {
+
+			$this->db->select('*');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->where('produk.id_category_produk', 6);
+
+			$this->db->group_by('produk.id_produk');
+
+			$this->db->order_by('produk.id','DESC');
+
+			$db = $this->db->get('produk', $limit, $start);
+
+			return $db;
+
+        }
+
+
+
+		function tampil_data_produk_cart()
+
+        {
+
+        	$id_buyer = $this->session->userdata('ses_id');
+
+			$this->db->select('*');
+
+            $this->db->from('shopping_cart');
+
+            $this->db->join('produk', 'produk.id_produk = produk.id_produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->group_by('shopping_cart.id_shop');
+
+			$this->db->where('id_buyer', $id_buyer);
 
 			$db = $this->db->get();
 
 			return $db;
 
-        }
+		}        
+
+		function tampil_data_produk_checkout()
+
+        {
+
+        	$id_buyer = $this->session->userdata('ses_id');
+
+        	$id_shop = $this->session->userdata('ses_shop');
+
+			$this->db->select('*');
+
+            $this->db->from('shopping_cart');
+
+            $this->db->join('produk', 'produk.id_produk = produk.id_produk');
+
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+
+			$this->db->group_by('shopping_cart.id_shop');
+
+			$this->db->where('id_buyer', $id_buyer);			
+
+			$db = $this->db->get();
+
+			return $db;
+
+		}        
+
+
 
 		function tampil_data_detail_produk_foto()
 
@@ -175,11 +445,16 @@
 			$id_produk = $this->input->get('id_produk');
 
 			$this->db->from('foto_produk');
+
 			$this->db->where('id_produk', $id_produk);
+
 			$db = $this->db->get();
+
 			return $db;
 
         }
+
+
 
         function tampil_data_detail_produk()
 
@@ -188,10 +463,17 @@
 			$id_produk = $this->input->get('id_produk');
 
 			$this->db->select('*');
+
             $this->db->from('produk');
+
             $this->db->join('prov', 'produk.provinsi = prov.id_prov');
+
             $this->db->join('kabkot', 'produk.kabupaten = kabkot.id_kabkot');
+
             $this->db->join('kec', 'produk.kecamatan = kec.id_kec');
+
+            $this->db->group_by('produk.id_produk');
+
             $this->db->where('produk.id_produk', $id_produk);			
 
 			$db = $this->db->get();
@@ -200,92 +482,66 @@
 
         }
 
-		/*function tampil_data3()
+
+
+        function tampil_data_produk_all($limit, $start)
 
         {
-
-			$id = $this->input->get('id');
-
-			$po = $this->input->get('po');
-
-			$calories = $this->input->get('calories');
-
-			$size = $this->input->get('size');
 
 			$this->db->select('*');
 
-			$this->db->from('order_goods');
+            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
-			$this->db->join('date_delivery', 'date_delivery.po = order_goods.po', 'date_delivery.id = order_goods.id');
+			$this->db->group_by('produk.id_produk');
 
-			$this->db->join('pricing', 'pricing.id = order_goods.id', 'pricing.calories = order_goods.calories', 'pricing.size = order_goods.size');
+			$this->db->order_by('id','DESC');
 
-			$this->db->join('type_charcoal_calories', 'type_charcoal_calories.no  = order_goods.calories');
-
-			$this->db->join('type_charcoal_size', 'type_charcoal_size.no = order_goods.size');
-
-			$this->db->where('order_goods.po', $po);		
-
-			$this->db->where('pricing.id', $id);			
-
-			$this->db->where('order_goods.id', $id);			
-
-			$this->db->where('pricing.calories', $calories);			
-
-			$this->db->where('pricing.size', $size);			
-
-			$db = $this->db->get();
+			$db = $this->db->get('produk', $limit, $start);
 
 			return $db;
 
-        }
+		}
 
-		function tampil_data_status()
 
-        {
 
-			$id = $this->input->get('id');
+		function tampil_data_produk_pencarian_beranda($limit, $start)
 
-			$calories = $this->input->get('calories');
+		{
 
-			$size = $this->input->get('size');
+			$data1 = $this->input->post('nama_produk');
 
-			$this->db->select('*');
+			$data2 = $this->input->post('provinsi');
 
-			$this->db->from('order_goods');
+			$data3 = $this->input->post('kabupaten');
 
-			$this->db->join('member', 'member.id = order_goods.id');
+			$data4 = $this->input->post('kecamatan');
 
-			$this->db->join('date_delivery', 'date_delivery.po = order_goods.po', 'date_delivery.id = order_goods.id');
+			$data5 = $this->input->post('urutan');	
 
-			$this->db->join('type_charcoal_calories', 'type_charcoal_calories.no  = order_goods.calories');
+				$this->db->select('*');
 
-			$this->db->join('type_charcoal_size', 'type_charcoal_size.no = order_goods.size');	
+	            $this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
 
-			$db = $this->db->get();
+				$this->db->like('produk.nama_produk', $data1)->or_where('produk.provinsi', $data2)->or_where('produk.kabupaten', $data3)->or_where('produk.kecamatan', $data4);
 
-			return $db;
+				$this->db->group_by('produk.id_produk');
 
-        }
+				if($this->input->post('urutan')){
 
-		function update_progress($no,$id,$po,$status)
+					$this->db->order_by('produk.harga', $data5);
 
-        {
+				}else{
 
-			 $no             = $this->input->post('no');
+					$this->db->order_by('produk.id','DESC');
 
-			 $id             = $this->input->post('id');
+				}
 
-             $po             = $this->input->post('po');
+				return $this->db->get('produk', $limit, $start);
 
-             $status	     = $this->input->post('status');
-
-			 $query = $this->db->query("UPDATE date_delivery SET delivery_status = '$status' WHERE no_order =  '$no' AND id = '$id' AND po = '$po'");
-
-            return $query;
-
-        }*/
+		}
 
     }
+
+
 
 ?>

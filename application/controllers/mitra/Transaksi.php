@@ -54,6 +54,13 @@ class Transaksi extends CI_Controller {
 	            	'foto' => $data['file_name']
 	            ));
 
+	            $this->db->where('id_mitra', $this->session->userdata('id_mitra'));
+	            $this->db->update('mitra', array(
+	            	'nama_bank' => $this->input->post('namabank'),
+	            	'no_rekening' => $this->input->post('norek'),
+	            	'atas_nama' => $this->input->post('atasnama'),
+	            ));
+
 	        	redirect('mitra/transaksi','refresh');
 	        }
 	    }	    

@@ -10,6 +10,25 @@ class Artikel extends CI_Controller {
 	    {	     
 	        redirect('mitra/login');
 	    }
+
+	    if ($this->session->userdata('status_akun') == "EXPIRED") {	    	
+	    	 $this->session->set_flashdata('error', '
+	            	$(document).ready(function(){
+	            		toastr.error("Silahkan Uprade Menjadi Mitra Developer Pro", "Status Expired");
+	            		});
+	            	');
+	            redirect('mitra/upgrade','refresh');
+	    }
+
+	    if ($this->session->userdata('confirm') == "YES") {	    	
+	    	 $this->session->set_flashdata('error', '
+	            	$(document).ready(function(){
+	            		toastr.error("Silahkan Lakukan Konfirmasi Pembayaran", "Akses ditolak");
+	            		});
+	            	');
+	            redirect('mitra/transaksi','refresh');
+	    }
+	    
 	    $this->load->model('Martikel');
 
 	}
