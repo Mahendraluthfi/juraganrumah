@@ -184,6 +184,7 @@
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                <a href="<?php echo base_url('admin/usermanagement') ?>" class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> User Account</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?php echo base_url('admin/login/logout') ?>"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 <div class="dropdown-divider"></div>
@@ -210,72 +211,39 @@
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item <?php if($this->uri->segment(2) == "dashboard"){ echo 'selected'; } ?>"> 
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "dashboard"){ echo 'active'; } ?>" href="<?php echo base_url('agen') ?>" aria-expanded="false">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "dashboard"){ echo 'active'; } ?>" href="<?php echo base_url('admin/dashboard') ?>" aria-expanded="false">
                                 <i class="mdi mdi-view-dashboard"></i>
                                 <span class="hide-menu">Dashboard Admin</span>
                             </a>
                         </li>
-                        <li class="sidebar-item <?php if($this->uri->segment(2) == "agen"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "agen"){ echo 'active'; } ?>" href="<?php echo base_url('admin/agen') ?>" aria-expanded="false">
-                                <i class="mdi mdi-account-multiple"></i>
-                                <span class="hide-menu">Data Agen</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item <?php if($this->uri->segment(2) == "mitra"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "mitra"){ echo 'active'; } ?>" href="<?php echo base_url('admin/mitra') ?>" aria-expanded="false">
-                                <i class="mdi mdi-account-box"></i>
-                                <span class="hide-menu">Data Mitra</span>
-                            </a>
-                        </li>    
-                        <li class="sidebar-item <?php if($this->uri->segment(2) == "produk"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "produk"){ echo 'active'; } ?>" href="<?php echo base_url('admin/produk') ?>" aria-expanded="false">
-                                <i class="mdi mdi-shopping"></i>
-                                <span class="hide-menu">Data Produk</span>
-                            </a>
-                        </li>                    
-                        <li class="sidebar-item <?php if($this->uri->segment(2) == "buyer"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "buyer"){ echo 'active'; } ?>" href="<?php echo base_url('admin/buyer') ?>" aria-expanded="false">
-                                <i class="mdi mdi-account"></i>
-                                <span class="hide-menu">Data Buyer</span>
-                            </a>
-                        </li> 
-                        <li class="sidebar-item <?php if($this->uri->segment(2) == "survei"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "survei"){ echo 'active'; } ?>" href="<?php echo base_url('admin/survei') ?>" aria-expanded="false">
-                                <i class="mdi mdi-calendar-text"></i>
-                                <span class="hide-menu">Data Survei</span>
-                            </a>
-                        </li> 
-                        <li class="sidebar-item <?php if($this->uri->segment(2) == "penjualan"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "penjualan"){ echo 'active'; } ?>" href="<?php echo base_url('admin/penjualan') ?>" aria-expanded="false">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span class="hide-menu">Data Penjualan</span>
-                            </a>
-                        </li>                        
-                        <li class="sidebar-item <?php if($this->uri->segment(2) == "artikel"){ echo 'selected'; } ?>">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == "artikel"){ echo 'active'; } ?>" href="<?php echo base_url('admin/artikel') ?>" aria-expanded="false">
-                                <i class="mdi mdi-file-document-box"></i>
-                                <span class="hide-menu">Data Artikel</span>
-                            </a>
-                        </li>                        
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mdi mdi-bookmark-check"></i>
-                                <span class="hide-menu">Konfirmasi </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="<?php echo base_url('admin/konf_premium') ?>" class="sidebar-link"><i class="mdi mdi-account-star"></i><span class="hide-menu"> Agen Premium </span></a></li>
-                                <li class="sidebar-item"><a href="<?php echo base_url('admin/konf_pro') ?>" class="sidebar-link"><i class="fas fa-user-circle"></i><span class="hide-menu"> Mitra Pro </span></a></li>
-                            </ul>
-                        </li> 
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                                <i class="mdi mdi-file"></i>
-                                <span class="hide-menu">Laporan </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="<?php echo base_url('admin/jurnal') ?>" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Jurnal Komisi </span></a></li>                                
-                            </ul>
-                        </li>                                                                  
+                        <?php 
+                            $user_id = $this->session->userdata('id_user');   
+                            $get = $this->db->query("SELECT * FROM privilage JOIN modul ON privilage.modul_id = modul.id WHERE privilage.user_id ='$user_id'")->result();
+                            foreach ($get as $modul) { 
+                               if ($modul->parent == "0") { ?>
+                            <li class="sidebar-item <?php if($this->uri->segment(2) == $modul->nama){ echo 'selected'; } ?>"> 
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link <?php if($this->uri->segment(2) == $modul->nama){ echo 'active'; } ?>" href="<?php echo base_url('admin/').$modul->nama ?>" aria-expanded="false">
+                                    <i class="<?php echo $modul->icon ?>"></i>
+                                    <span class="hide-menu"><?php echo $modul->span ?></span>
+                                </a>
+                            </li>
+                            <?php }elseif ($modul->parent == "2") { 
+                                $get_sub = $this->db->query("SELECT * FROM privilage JOIN modul ON privilage.modul_id = modul.id WHERE modul.ktg = '$modul->id' AND privilage.user_id='$user_id'")->result();
+                                ?>
+                                 <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                                        <i class="<?php echo $modul->icon ?>"></i>
+                                        <span class="hide-menu"><?php echo $modul->span ?> </span>
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse  first-level">
+                                        <?php foreach ($get_sub as $key) {
+                                            echo '<li class="sidebar-item"><a href="'.base_url('admin/').$key->nama.'" class="sidebar-link"><i class="'.$key->icon.'"></i><span class="hide-menu"> '.$key->span.' </span></a></li>';
+                                        } ?>
+                                    </ul>
+                                </li> 
+                            <?php }
+                        }                            
+                        ?>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

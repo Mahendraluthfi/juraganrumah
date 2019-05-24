@@ -31,7 +31,7 @@
                 <div class="box bg-cyan text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-whatsapp"></i></h1>
                     <h5 class="font-light text-white">Kontak Whatsapp</h5>
-                    <h4 class="text-white"><?php if (isset($wa->count)) { echo $landing->count; }else{ echo "0"; } ?></h4>
+                    <h4 class="text-white"><?php if (isset($wa->count)) { echo $wa->count; }else{ echo "0"; } ?></h4>
                 </div>
             </div>
         </div>        
@@ -41,7 +41,7 @@
                 <div class="box bg-success text-center">
                     <h1 class="font-light text-white"><i class="fas fa-phone"></i></h1>
                     <h5 class="font-light text-white">Kontak Telepon</h5>
-                    <h4 class="text-white"><?php if (isset($telepon->count)) { echo $landing->count; }else{ echo "0"; } ?></h4>
+                    <h4 class="text-white"><?php if (isset($telepon->count)) { echo $telepon->count; }else{ echo "0"; } ?></h4>
                 </div>
             </div>
         </div>        
@@ -51,7 +51,7 @@
                 <div class="box bg-warning text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-message"></i></h1>
                     <h5 class="font-light text-white">Kontak SMS</h5>
-                    <h4 class="text-white"><?php if (isset($sms->count)) { echo $landing->count; }else{ echo "0"; } ?></h4>
+                    <h4 class="text-white"><?php if (isset($sms->count)) { echo $sms->count; }else{ echo "0"; } ?></h4>
                 </div>
             </div>
         </div>        

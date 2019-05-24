@@ -15,9 +15,11 @@ class Upgrade extends CI_Controller {
 
 	public function index()
 	{		
-		$cek = $this->Mprofilagen->show($this->session->userdata('id_agen'))->row();		
+		$cek = $this->db->get_where('agen', array('id_agen' => $this->session->userdata('id_agen')))->row();		
 		$data['row'] = $cek;
-		$data['url'] = base_url('agen/link/'.$cek->id_agen);	
+		$url = base_url('agen/link/'.$cek->id_agen);
+		$data['url'] = file_get_contents('http://tinyurl.com/api-create.php?url='."$url");		
+		// $data['url'] = base_url('agen/link/'.$cek->id_agen);	
 		$premium = $this->db->get_where('agen_premium', array('id_agen' => $this->session->userdata('id_agen')));
 		$row = $premium->row();
 		if (empty($premium->num_rows())) {

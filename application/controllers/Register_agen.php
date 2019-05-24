@@ -5,73 +5,54 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 
-
 class Register_agen extends CI_Controller {
 
 	function __construct(){
-
         parent::__construct();
-
-        /*if ($this->session->userdata('ses_email') != true){
-
-        	redirect('index.php/login');
-
-		}*/
-
 		$this->load->model('Validasiform_agen');
-
 		$this->load->model('M_registrasi_agen');
-
         $this->load->helper(array('form', 'url','cookie'));
-
 		$this->load->library('form_validation');
-
     }
 
-
-
 	public function index()
-
 	{
-
 		$this->load->model('M_blog');
-
 		$this->load->model('Martikel');
-
+		$this->load->model('Login_buyer');
+		$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();
 		$data['prov'] = $this->db->get('prov')->result();
-
-		$data['newest'] = $this->M_blog->get()->result();
+		$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
+		//$data['newest'] = $this->M_blog->get()->result();
 		$data['content'] = 'register_agen';
-
 		$data['newest_produk'] = $this->Martikel->get()->result();
-
 		$this->load->view('home', $data);
-
 	}
-
-
-
-	public function send_mail()
-
-    {
-
-       
-
-	}
-
 
 
     public function save()
-
     {
+		if (!empty(get_cookie('user_agen'))) {
+			$id_agen = get_cookie('user_agen');
+		}else{
+			$cek = $this->db->get_where('agen_premium', array('status' => 'AKTIF'))->num_rows();			
+			if (!empty($cek)) {
+				$get = $this->db->get('agen_premium')->result();
+				$jml =  count($get) - 1;
+				$indeks = rand(0,$jml);
+				$id_agen =  $get[$indeks]->id_agen;				
+			}else{
+				$id_agen = 0;
+			}
+		}
+
 		$nama_agen      = $this->input->post('nama_agen');
 		$email       	= $this->input->post('email');
 		$username       = $this->input->post('username');				
-		$pass 			= date('Y-m-d').$username;
+		$pass 			= date('Ymd').$username;
 		$password 		= sha1($pass);
 	 	$this->load->library('phpmailer_lib');
         $mail = $this->phpmailer_lib->load();
-        
         $mail->isSMTP();
         $mail->Host         = 'smtp.gmail.com';
         $mail->SMTPAuth     = true;
@@ -79,7 +60,6 @@ class Register_agen extends CI_Controller {
         $mail->Password     = 'ilodamnoke26';
        	$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 		$mail->Port = 587; 
-        
         $mail->setFrom('help.juraganrumah@gmail.com', 'Juragan Rumah');
         
         $mail->addAddress($email);
@@ -112,15 +92,25 @@ class Register_agen extends CI_Controller {
 			'nama_agen'     => $nama_agen,
 			'email'   		=> $email,
 			'password'   	=> $password,
+			'sub_agen'   	=> $id_agen,
+			'date_join'   	=> date('Y-m-d'),
 			'username'      => $username
 			);
-
 		$this->M_registrasi_agen->adding($data,'agen');
+		if ($id_agen > 0) {
+			$this->db->insert('poin_agen', array(
+				'id_agen' => $id_agen,
+				'date' => date('Y-m-d'),
+				'remarks' => 'Rewards rekrut agen via afiliasi',
+				'poin' => '5'
+			));
+
+			$this->db->query("UPDATE agen SET poin = poin + '5' WHERE id_agen='".$id_agen."'");
+
+		}
 		$this->session->set_flashdata("sukses","Data Terkirim.<br> Silahkan Cek Email Anda untuk langkah selanjutnya.");
 		redirect('register_agen');
-
 	}
-
 
 
 	public function email_validasi()

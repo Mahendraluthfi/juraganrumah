@@ -56,7 +56,10 @@ $route['translate_uri_dashes'] = FALSE;
 $route['agen'] = 'agen/login';
 $route['mitra'] = 'mitra/login';
 $route['official'] = 'admin/login';
+$route['freelance'] = 'freelance/login';
 $route['agen/link/(:any)'] = "agen/link/get/$1";
+$route['developer/(:any)'] = "developer/page/$1";
+$route['developer/(:any)/(:num)'] = "developer/page/$1/$2";
 
 
 

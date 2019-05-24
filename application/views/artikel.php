@@ -95,7 +95,7 @@
                                 <img src="<?php echo base_url('assets/backend/fotoartikel/'.$data->foto) ?>" class="img-responsive" alt="Example blog post alt">
                             </a>
                         </div>
-                        <p class="intro">
+                        <p class="intro" style="text-align: justify;">
                             <?php echo substr(strip_tags($data->isi), 0,350)." ..."; ?>
                         </p>
                         <p class="read-more">

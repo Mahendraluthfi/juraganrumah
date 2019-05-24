@@ -18,8 +18,11 @@ class Register_mitra extends CI_Controller {
 	{
 		$this->load->model('M_blog');
 		$this->load->model('Martikel');
+		$this->load->model('Login_buyer');
+		$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();
 		$data['prov'] = $this->db->get('prov')->result();
-		$data['newest'] = $this->M_blog->get()->result();
+		$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
+		//$data['newest'] = $this->M_blog->get()->result();
 		$data['newest_produk'] = $this->Martikel->get()->result();
         $data['mitra'] = $this->M_registrasi_mitra->mitra()->result();
 		$data['content'] = 'register_mitra';
@@ -30,8 +33,11 @@ class Register_mitra extends CI_Controller {
 	{
 		$this->load->model('M_blog');
 		$this->load->model('Martikel');
+		$this->load->model('Login_buyer');
+		$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();
 		$data['prov'] = $this->db->get('prov')->result();
-		$data['newest'] = $this->M_blog->get()->result();
+		$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
+		//$data['newest'] = $this->M_blog->get()->result();
 		$data['newest_produk'] = $this->Martikel->get()->result();
 		$data['content'] = 'eror404';
 		$this->load->view('home', $data);
@@ -41,8 +47,11 @@ class Register_mitra extends CI_Controller {
 	{
         $this->load->model('M_blog');
 		$this->load->model('Martikel');
+		$this->load->model('Login_buyer');
+		$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();
 		$data['prov'] = $this->db->get('prov')->result();
-		$data['newest'] = $this->M_blog->get()->result();
+		$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
+		//$data['newest'] = $this->M_blog->get()->result();
 		$data['newest_produk'] = $this->Martikel->get()->result();
         $data['mitra'] = $this->M_registrasi_mitra->mitra()->result();
 		$data['content'] = 'register_mitra_pro';
@@ -63,65 +72,46 @@ class Register_mitra extends CI_Controller {
 		$this->load->view( 'checkoutpro', $data);
 	}
 
-	public function send_mail()
+	public function send_mail($id)
     {
-        $to             = $this->input->post('email_buyer');
-		$subject        = "Konfirmasi Akun Mitra";
-		$message = '<html><head>
-        			<title>juraganrumah.net</title>
-    			</head><body>';
-		$message .= '<img src="assets/img/juragan_rumah_logo.png" nosend="1" border="0" width="300" height="148" alt="juraganrumah.net" title="juraganrumah.net"><h3>Terimakasih, Atas kepercayaanya karena telah memilih kami</h3>
-				<h5>Mohon Tunggu Konfirmasi Pengaktifan Akun Anda, dan Akan dikirim Melalui Email Berikutnya..<br> Status Akun Anda <b>Trial</b></h5>
-        			<table cellspacing="0" style="border: 2px dashed #FB4314; width: 300px; height: 200px;">';
-		$message .= "$to";
-		$message .= '</td>
-           				</tr>
-            				<tr>
-                			<th>Login disini:</th><td><a href="http://beta.juraganrumah.net">beta.juraganrumah.net</a></td>
-            				</tr>
-        			</table>
-    			</body>
-       	             </html>';
-		$message .= '</body></html>';
-		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: juraganrumah<juraganrumah.net>' . "\r\n";
-        if(mail($to,$subject,$message,$headers)):
-			$this->session->set_flashdata("notif",'Data Terkirim.<br> Menunggu Konfirmasi Pengaktivan Akun <br> Status Akun Anda <b>Trial</b>');
-		else:
-			$this->session->set_flashdata("notif",'Data Tidak Terkirim');
-		endif;
-	}
-
-	public function send_mail_pro()
-    {
-        $to             = $this->input->post('email_buyer');
-		$subject        = "Konfirmasi Akun Mitra";
-		$message = '<html><head>
-        			<title>juraganrumah.net</title>
-    			</head><body>';
-		$message .= '<img src="assets/img/juragan_rumah_logo.png" nosend="1" border="0" width="300" height="148" alt="juraganrumah.net" title="juraganrumah.net"><h3>Terimakasih, Atas kepercayaanya karena telah memilih kami</h3>
-				<h5>Mohon Tunggu Konfirmasi Pengaktifan Akun Anda, dan Akan dikirim Melalui Email Berikutnya..<br> Anda memlilih Paket <b>Pro</b></h5> Status saat ini masih Trial, sampai Menunggu Konfirmasi Pembayaran Anda.
-        			<table cellspacing="0" style="border: 2px dashed #FB4314; width: 300px; height: 200px;">';
-		$message .= "$to";
-		$message .= '</td>
-           				</tr>
-            				<tr>
-                			<th>Login disini:</th><td><a href="http://beta.juraganrumah.net">beta.juraganrumah.net</a></td>
-            				</tr>
-        			</table>
-    			</body>
-       	             </html>';
-		$message .= '</body></html>';
-		$headers = "MIME-Version: 1.0" . "\r\n";
-		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: juraganrumah<juraganrumah.net>' . "\r\n";
-        if(mail($to,$subject,$message,$headers)):
-			$this->session->set_flashdata("notif",'Data Terkirim.<br> Menunggu Konfirmasi Pengaktivan Akun <br> Status Akun Anda <b>Trial</b>');
-		else:
-			$this->session->set_flashdata("notif",'Data Tidak Terkirim');
-		endif;
-    }
+    	$get_email = $this->db->get_where('mitra', array('id_mitra' => $id))->row();
+    	$data['pt'] = $get_email->nama_perusahaan;
+        $message = $this->load->view('mitra/welcome_email', $data, true);	        
+	        
+        $this->load->library('phpmailer_lib');
+        $mail = $this->phpmailer_lib->load();
+        
+        $mail->isSMTP();
+        $mail->Host         = 'smtp.gmail.com';
+        $mail->SMTPAuth     = true;
+        $mail->Username     = 'help.juraganrumah@gmail.com';
+        $mail->Password     = 'ilodamnoke26';
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = 587; 
+        
+        $mail->setFrom('help.juraganrumah@gmail.com', 'Juragan Rumah');
+        
+        $mail->addAddress($get_email->email);
+                
+        $mail->Subject = 'Pendaftaran Mitra Developer Juragan Rumah';
+               
+        $mail->isHTML(true);
+                            
+        $mail->Body = $message;
+        
+        // Send email
+        if(!$mail->send()){
+            echo 'Message could not be sent.';
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+        }else{
+            // echo 'Message has been sent';
+	        // $this->session->set_flashdata('msg','
+         //        <span class="login100-form-title p-b-20">
+         //                Informasi Reset Password berhasil dikirim ke email anda.
+         //            </span>');       
+         //    redirect('mitra/forgotpassword');
+        }
+	}	
 
     public function project($id)
     {
@@ -143,7 +133,6 @@ class Register_mitra extends CI_Controller {
 	}
 
 	
-
     public function save()
     {
 		$nama_mitra      = $this->input->post('nama_mitra');
@@ -152,6 +141,9 @@ class Register_mitra extends CI_Controller {
 					$nama_mitra	       = $this->input->post('nama_mitra');
 					$nik_ktp	       = $this->input->post('nik_ktp');
 					$nama_perusahaan   = $this->input->post('nama_perusahaan');
+					$a = str_replace(" ","-", $nama_perusahaan);
+					$b = str_replace(".", "-", $a);
+					$username = strtolower($b);
 					$profil	           = $this->input->post('profil');
 					$email             = $this->input->post('email_mitra');
 					$nomorwa           = $this->input->post('nomorwa');
@@ -173,6 +165,7 @@ class Register_mitra extends CI_Controller {
 						'nama_mitra'         => $nama_mitra,
                         'nik_ktp'            => $nik_ktp,
                         'nama_perusahaan'    => $nama_perusahaan,
+                        'username'    		 => $username,
                         'profil_perusahaan'  => $profil,
 						'email'              => $email,
 						'telepon'            => $nomorwa,						
@@ -185,6 +178,7 @@ class Register_mitra extends CI_Controller {
                         $this->M_registrasi_mitra->adding($data,'mitra');
                         $cek = $this->db->get_where('mitra', array('email' => $email))->row();
                         $id_mitra = $cek->id_mitra;
+                        $this->send_mail($id_mitra);
 						$this->project($id_mitra);
 
 			      	$config['upload_path']          = './assets/backend/fotomitra/';       	
@@ -233,6 +227,9 @@ class Register_mitra extends CI_Controller {
 					$nama_mitra	       = $this->input->post('nama_mitra');
 					$nik_ktp	       = $this->input->post('nik_ktp');
 					$nama_perusahaan   = $this->input->post('nama_perusahaan');
+					$a = str_replace(" ","-", $nama_perusahaan);
+					$b = str_replace(".", "-", $a);
+					$username = strtolower($b);
 					$profil	           = $this->input->post('profil');
 					$email             = $this->input->post('email_mitra');
 					$nomorwa           = $this->input->post('nomorwa');
@@ -254,6 +251,7 @@ class Register_mitra extends CI_Controller {
 						'nama_mitra'         => $nama_mitra,
                         'nik_ktp'            => $nik_ktp,
                         'nama_perusahaan'    => $nama_perusahaan,
+                        'username'    		 => $username,                        
                         'profil_perusahaan'  => $profil,
 						'email'              => $email,
 						'telepon'            => $nomorwa,						
@@ -268,6 +266,7 @@ class Register_mitra extends CI_Controller {
                         $this->M_registrasi_mitra->adding($data,'mitra');
                         $cek = $this->db->get_where('mitra', array('email' => $email))->row();
                         $id_mitra = $cek->id_mitra;
+                        $this->send_mail($email);                        
 						$this->project($id_mitra);
 						// $this->send_mail_pro();				
 						$config['upload_path']          = './assets/backend/fotomitra/';       	
@@ -357,6 +356,11 @@ class Register_mitra extends CI_Controller {
 				echo '<span style="color:green"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Alamat email siap di gunakan</span>';
 			  }
 		 }
+
+	public function tes()
+	{
+		$this->load->view('mitra/welcome_email', TRUE);
+	}
 }
 
 	

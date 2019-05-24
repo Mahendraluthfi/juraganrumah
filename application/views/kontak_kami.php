@@ -20,10 +20,15 @@
                         <div class="row">
                             <div class="col-sm-4">
                                 <h3> Sampaikan ide/ saran/ pertanyaan Anda langsung kepada Kami</h3>
-                                <p><i class="fa fa-map-marker"></i> WISMA PURBA DANARTA
-                                    <br> Jl. Veteran No. VII
+                                <p><i class="fa fa-map-marker"></i> Jl. Veteran No. 48 Semarang
                                     <br> Semarang
                                     <br> Jawa Tengah
+                                    <br>
+                                    <strong>Indonesia</strong>
+                                </p>
+                                <p><i class="fa fa-map-marker"></i> mall mega bekasi lantai 3 unit 80 jalan jenderal ahmad yani no 1 bekasi indonesia
+                                    <br> Bekasi
+                                    <br> Jawa Barat
                                     <br>
                                     <strong>Indonesia</strong>
                                 </p>
@@ -33,7 +38,9 @@
                             <div class="col-sm-4">
                                 <h3> Kontak Kantor</h3>
                                 <p class="text-muted">Untuk menghubungi Kami melalui telpon lokal silahkan kontak ke</p>
-                                <i class="fa fa-phone"></i><strong>   +6224 831-4793 Ext. 208</strong>
+                                <i class="fa fa-phone"></i><strong> (024) 76443701</strong>
+                                <br>
+                                <i class="fa fa-phone"></i><strong> (021) 89459416</strong>
                             </div>
                             <!-- /.col-sm-4 -->
                             <div class="col-sm-4">
@@ -125,4 +132,4 @@
             </div>
         </div>
          <!--<div id="map" style="height: 400px;"></div>-->
-         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d907.8586565502552!2d110.41448409088866!3d-6.996335160633784!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b67f88fe863%3A0x837da69882d652a4!2sWisma+Purba+Danarta!5e0!3m2!1sid!2sid!4v1555730879806!5m2!1sid!2sid" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.108417420957!2d110.41380261431796!3d-6.9965114704659745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708b678da3f443%3A0x2c7b1f9617b8d120!2sJl.+Veteran+No.48%2C+Mugassari%2C+Semarang+Sel.%2C+Kota+Semarang%2C+Jawa+Tengah+50231!5e0!3m2!1sid!2sid!4v1557283150844!5m2!1sid!2sid" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>

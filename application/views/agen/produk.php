@@ -1,6 +1,7 @@
 <link href="<?php echo base_url() ?>assets/backend/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 <script src="<?php echo base_url() ?>assets/backend/assets/extra-libs/DataTables/datatables.min.js"></script>    
-
+<link href="<?php echo base_url() ?>assets/backend/assets/libs/toastr/build/toastr.min.css" rel="stylesheet">
+<script src="<?php echo base_url() ?>assets/backend/assets/libs/toastr/build/toastr.min.js"></script>
 
  <div class="page-breadcrumb">
     <div class="row">
@@ -18,7 +19,29 @@
     </div>
 </div>
 
-<div class="container-fluid">   
+<div class="container-fluid">              
+        <?php echo form_open('agen/produk/search'); ?>
+          <div class="row">
+            <div class="col-2">
+                <h5>Pencarian Komisi</h5>
+            </div>
+            <div class="col-2">            
+            <select name="indikator" class="form-control" style="width: 100%;" required="">
+                <option value="1">> Lebih dari</option>                
+                <option value="2">< Kurang dari</option>                
+            </select>
+            </div>
+            <div class="col-3">              
+                <input type="number" name="nominal" placeholder="Nominal" min="0" class="form-control" required="">
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-default"><i class="fas fa-search"></i> Cari</button>
+            </div>
+          </div>
+        <?php echo form_close(); ?>
+    
+    <hr>
+    <?php echo $this->session->flashdata('label'); ?>
     <div class="row">
         <div class="col-md-12">
              <div class="card-deck text-center">
@@ -36,7 +59,7 @@
                     <h4 class="my-0 font-weight-normal" title="<?php echo $get->nama_produk ?>"><?php echo substr(ucwords(strtolower($get->nama_produk)), 0, 50)."..."; ?></h4>
                   </div>
                   <div class="card-body">                    
-                    <img src="<?php echo base_url('assets/backend/fotoproduk/'.$get->file) ?>" alt="" style="height: 150px; width: 100%"><p></p>
+                    <img src="<?php echo base_url('assets/backend/fotoproduk/'.$get->file) ?>" alt="" style="height: 150px;"><p></p>
                     <h5>
                         <?php 
                             if (!empty($get->harga_promo)) {
@@ -53,7 +76,17 @@
                             <button type="button" onclick="view('<?php echo $get->id_produk ?>')" class="btn btn-block btn-outline-success">Detail</button>
                         </div>
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-block btn-outline-primary">Beli</button>
+                            <a href="<?php echo base_url('agen/produk/purchase/'.$get->id_produk) ?>" class="btn btn-block btn-outline-primary">Beli</a>
+                        </div>
+                    </div><br>
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <h6>Bagikan <i class="mdi mdi-share-variant"></i></h6>     
+                            <p id="p1" style="display: none;">https://juraganrumah.net/properti_detail?id_produk=<?php echo $get->id_produk.'&agen='.$this->session->userdata('id_agen'); ?></p>
+                            <button class="btn btn-warning btn-sm" onclick="copyToClipboard('#p1')"><i class="fas fa-copy"></i> URL</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='https://telegram.me/share/url?url=https%3A%2F%2Fwww.juraganrumah.net%2Fproperti_detail%3Fid_produk%3D<?php echo $get->id_produk.$agen ?>'"><i class="mdi mdi-telegram"></i></button>
+                            <button type="button" class="btn btn-success btn-sm" onclick="window.location.href='https://api.whatsapp.com/send?&text=https%3A%2F%2Fwww.juraganrumah.net%2Fproperti_detail%3Fid_produk%3D<?php echo $get->id_produk.$agen ?>'"><i class="mdi mdi-whatsapp"></i></button>
+                            <button type="button" class="btn btn-default btn-sm" onclick="window.location.href='https://www.facebook.com/dialog/share?app_id=1275111962639567&display=popup&href=https%3A%2F%2Fwww.juraganrumah.net%2Fproperti_detail%3Fid_produk%3D<?php echo $get->id_produk.$agen ?>'"><i class="mdi mdi-facebook"></i></button>
                         </div>
                     </div>
                   </div>
@@ -70,11 +103,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel"></h5>
+                            
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true ">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">                            
+            <div class="modal-body">                       
                 <div class="form-group row">
                     <label for="fname" class="col-sm-3 control-label col-form-label">Kode Produk</label>
                     <div class="col-sm-9">
@@ -205,7 +239,7 @@
                 <div class="form-group row">
                     <label for="lname" class="col-sm-3 control-label col-form-label">Deskripsi</label>
                     <div class="col-sm-9">
-                        <p class="description"></p>
+                        <p class="description text-justify"></p>
                     </div>                                        
                 </div>
                 <div class="form-group row">
@@ -230,7 +264,7 @@
             {   
                 var harga = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga);
                 var harga_bawah = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_bawah);
-                var harga_promo = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_promo);
+                var harga_promo = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.harga_promo);                
                 $('.modal-title').text('Detail Produk');
                 $('[name="id_produk"]').val(data.id_produk);
                 $('[name="harga"]').val(harga);                
@@ -258,6 +292,7 @@
                 $('[name="kabkot"]').val(data.nama_kabkot);
                 $('[name="kec"]').val(data.nama_kec);
                 $('#view_modal').modal('show');
+
                 // console.log(data);
             },
         error: function (jqXHR, textStatus, errorThrown)
@@ -265,6 +300,15 @@
             alert('Error get data from ajax');
         }
         });
+    }
+
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        toastr.success('Alamat URL disalin', 'Berhasil');        
     }
 </script>
 

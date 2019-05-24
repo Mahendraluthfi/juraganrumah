@@ -16,6 +16,8 @@ class Properti extends CI_Controller {
 		if($this->input->post('search_beranda')){
 			$this->load->model('M_blog');
 			$this->load->model('Martikel');
+			$this->load->model('Login_buyer');
+			$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();
 			//konfigurasi pagination
 	        $config['base_url'] = base_url()."properti/index"; //site url
 	        $config['total_rows'] = $this->db->count_all('produk'); //total row
@@ -50,7 +52,8 @@ class Properti extends CI_Controller {
 	       
 	        $data['produk'] = $this->M_buyer_produk->tampil_data_produk_pencarian_beranda($config["per_page"], $offset)->result();;
 	        $data['prov'] = $this->db->get('prov')->result();
-			$data['newest'] = $this->M_blog->get()->result();
+			$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
+			//$data['newest'] = $this->M_blog->get()->result();
 			$data['newest_produk'] = $this->Martikel->get()->result();
 			$data['pagination'] = $this->pagination->create_links();
 			$data['content'] = 'properti';
@@ -59,6 +62,8 @@ class Properti extends CI_Controller {
 		else{
 			$this->load->model('M_blog');
 			$this->load->model('Martikel');
+			$this->load->model('Login_buyer');
+			$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();
 			//konfigurasi pagination
 	        $config['base_url'] = base_url()."properti/index"; //site url
 	        $config['total_rows'] = $this->db->count_all('produk'); //total row
@@ -92,7 +97,8 @@ class Properti extends CI_Controller {
 			$data['offset'] = $offset;
 	        $data['produk'] = $this->M_buyer_produk->tampil_data_produk_all($config["per_page"], $offset)->result();
 	        $data['prov'] = $this->db->get('prov')->result();
-			$data['newest'] = $this->M_blog->get()->result();
+			$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
+			//$data['newest'] = $this->M_blog->get()->result();
 			$data['newest_produk'] = $this->Martikel->get()->result();           
 	        $data['pagination'] = $this->pagination->create_links();
 			$data['content'] = 'properti';

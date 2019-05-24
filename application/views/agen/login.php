@@ -71,6 +71,9 @@
 
 						<a class="txt2" href="#">
 							Daftar
+						</a><br>
+						<a class="txt2" href="<?php echo base_url('agen/forgotpassword') ?>">
+							Lupa Password ?
 						</a>
 					</div>
 				<?php echo form_close(); ?>

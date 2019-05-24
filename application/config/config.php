@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 date_default_timezone_set("Asia/Bangkok");
+
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -23,8 +24,11 @@ date_default_timezone_set("Asia/Bangkok");
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/backend/';
 
+// $config['base_url'] = 'https://juraganrumah.net/';
+$http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
+$newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
+$config['base_url']    = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -158,7 +162,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@\=$';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
 
 /*
 |--------------------------------------------------------------------------

@@ -154,7 +154,7 @@
               <!-- ADDRESS -->
               <tr>
                 <td bgcolor="#f4f4f4" align="left" style="padding: 0px 30px 30px 30px; color: #666666; font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: 400; line-height: 18px;" >
-                  <p style="margin: 0;">WISMA PURBA DANARTA | Jl. Veteran No. VII Semarang</p>
+                  <p style="margin: 0;">Jl. Veteran No. 48 Semarang, Indonesia</p>
                 </td>
               </tr>
             </table>

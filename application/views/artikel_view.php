@@ -46,7 +46,7 @@
                                 <?php foreach ($newest_produk as $data) { ?>
                                 <li>
                                     <div class="col-md-3 col-sm-3 col-xs-3 blg-thumb p0">
-                                        <a href=""><img src="assets/backend/fotoproduk/<?php echo $data->file ?>"></a>
+                                        <a href=""><img src="<?php echo base_url()?>assets/backend/fotoproduk/<?php echo $data->file ?>"></a>
                                     </div>
                                     <div class="col-md-8 col-sm-8 col-xs-8 blg-entry" style="margin-top: -9px;">
                                         <h6> <a href="<?php echo site_url() ?>properti_detail?id_produk=<?php echo $data->id_produk?>&nama_produk=<?php echo $data->nama_produk?>" title="<?php echo $data->nama_produk ?>"><?php echo substr($data->nama_produk, 0, 15).'...' ?></a></h6>

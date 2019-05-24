@@ -16,7 +16,8 @@ class Artikel extends CI_Controller {
 	public function index($offset=0)
 	{
 
-
+		$this->load->model('Login_buyer');
+		$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();
 		$jml = $this->db->get('artikel');
 		$config['base_url'] = base_url().'artikel/index';
 		$config['total_rows'] = $jml->num_rows();
@@ -54,7 +55,8 @@ class Artikel extends CI_Controller {
 		$data['get'] = $db->result();
 
 		// $data['artikel'] = 
-		$data['newest'] = $this->M_blog->get()->result();
+		//$data['newest'] = $this->M_blog->get()->result();
+		$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
 		$data['newest_produk'] = $this->Martikel->get()->result();
 		$data['content'] = 'artikel';
 		$this->load->view('home', $data);
@@ -82,7 +84,10 @@ class Artikel extends CI_Controller {
 
 		$data['next'] = $max;
 		$data['previous'] = $min;
-		$data['newest'] = $this->M_blog->get()->result();		
+		//$data['newest'] = $this->M_blog->get()->result();	
+		$this->load->model('Login_buyer');
+		$data['foto_buyer'] = $this->Login_buyer->profil_buyer()->result();	
+		$data['newest'] = $this->db->query("SELECT * FROM artikel ORDER BY id_artikel desc LIMIT 3")->result();
 		$data['newest_produk'] = $this->Martikel->get()->result();
 		$data['content'] = 'artikel_view';
 		$this->load->view('home', $data);		

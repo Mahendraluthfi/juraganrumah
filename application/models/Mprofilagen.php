@@ -7,7 +7,7 @@ class Mprofilagen extends CI_Model {
 		{
 			$this->db->select('*');
 			$this->db->from('agen');
-			$this->db->join('prov', 'prov.id_prov = agen.provinsi');
+			$this->db->join('prov', 'prov.id_prov = agen.provinsi','left');
 			$this->db->where('id_agen', $id);
 			$db = $this->db->get();
 			return $db;
@@ -22,6 +22,7 @@ class Mprofilagen extends CI_Model {
 		$db = $this->db->get();
 		return $db;
 	}
+	
 }
 
 /* End of file Mprofilagen.php */

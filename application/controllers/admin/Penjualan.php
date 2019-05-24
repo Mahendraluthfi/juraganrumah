@@ -48,6 +48,16 @@ class Penjualan extends CI_Controller {
 
 			$this->db->where('id_agen', $row_transaksi->id_agen);
 			$this->db->update('agen', array('balance' => $encode_balance));
+
+			$this->db->insert('poin_agen', array(
+				'id_agen' => $row_transaksi->id_agen,
+				'date' => date('Y-m-d'),
+				'remarks' => 'Rewards Penjualan Properti '.$main->id_produk,
+				'poin' => '5'
+			));
+
+			$this->db->query("UPDATE agen SET poin = poin + '50' WHERE id_agen='".$row_transaksi->id_agen."'");
+
 			//
 			//for mitra
 			$komisi_mitra = $get_persen->total - (($get_persen->komisi / 100) * $get_persen->total);
@@ -135,10 +145,16 @@ class Penjualan extends CI_Controller {
 		$transaksi = $this->db->get_where('transaksi', array('id_transaksi' => $id))->row();
 		$get = $this->db->get_where('detail_transaksi', array('id_transaksi' => $id))->row();
 		$get_produk = $this->db->get_where('produk', array('id_produk' => $get->id_produk))->row();
-		$get_mitra = $this->db->get_where('mitra', array('id_mitra' => $get_produk->id_mitra))->row();
-		$komisi_agen = (($get_mitra->komisi / 100) * $transaksi->total_prize) * 0.6;
-		$komisi_manajemen = (($get_mitra->komisi / 100) * $transaksi->total_prize) * 0.25;
-		$komisi_promosi = (($get_mitra->komisi / 100) * $transaksi->total_prize) * 0.15;
+		if ($get_produk->id_mitra > 0) {
+			$get_mitra = $this->db->get_where('mitra', array('id_mitra' => $get_produk->id_mitra))->row();
+			$komisi_agen = (($get_mitra->komisi / 100) * $transaksi->total_prize) * 0.6;
+			$komisi_manajemen = (($get_mitra->komisi / 100) * $transaksi->total_prize) * 0.25;
+			$komisi_promosi = (($get_mitra->komisi / 100) * $transaksi->total_prize) * 0.15;			
+		}else{
+			$komisi_agen = ((2.5 / 100) * $transaksi->total_prize) * 0.6;
+			$komisi_manajemen = ((2.5 / 100) * $transaksi->total_prize) * 0.25;
+			$komisi_promosi = ((2.5 / 100) * $transaksi->total_prize) * 0.15;			
+		}
 
 		$data = array(
 			'komisi_agen' => $komisi_agen,

@@ -21,7 +21,7 @@
          <div class="col-lg-4">
               <div class="card card-hover">
                     <div class="box bg-cyan text-center">
-                        <img src="<?php echo base_url('assets/backend/fotomitra/'.$mitra->file_logo) ?>" alt="" style="height:100px;">
+                        <img src="<?php echo base_url('assets/backend/fotomitra/'.$mitra->file_logo) ?>" alt="" style="height:100px; width: 100%;">
                         <h5 class="text-white"><?php echo $mitra->nama_perusahaan ?></h5>
                         <h6 class="text-white font-light"><?php echo $mitra->alamat ?></h6>
                         <h6 class="text-white font-light"><?php echo date('d M Y', strtotime($mitra->date_join)) ?></h6>

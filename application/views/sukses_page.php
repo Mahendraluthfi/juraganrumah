@@ -8,8 +8,12 @@
                         <br>
                         <br>
                         <h2 class="text-success">Success</h2>
-                        <p><?=$this->session->flashdata('sukses')?></p>
-                        <a href="<?php echo site_url() ?>home" class="btn btn-default">Beranda</a>                        
+                        <br>
+                        <br>
+                        <p><?=$this->session->flashdata('sukses')?></p>   
+                        <br>               
+                        <br>               
+                        <br>                
                     </div>
                 </div> 
             </div>

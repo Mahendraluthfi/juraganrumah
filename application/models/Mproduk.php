@@ -46,6 +46,36 @@ class Mproduk extends CI_Model {
 		$db = $this->db->get();
 		return $db;
 	}
+
+	public function list_search($get,$nominal)
+	{
+		if ($get == "1") {
+			$this->db->from('view_komisi');
+			$this->db->where('komisi >=', $nominal);			
+		}else{
+			$this->db->from('view_komisi');
+			$this->db->where('komisi <=', $nominal);			
+		}
+
+		$db = $this->db->get();
+		return $db;
+	}
+
+	public function get_id_purchase($id)
+	{
+		$this->db->select('*');
+		$this->db->from('produk');
+		$this->db->join('category_produk', 'category_produk.id_category_produk = produk.id_category_produk');
+		$this->db->join('prov', 'prov.id_prov = produk.provinsi');
+		$this->db->join('kabkot', 'kabkot.id_kabkot = produk.kabupaten');
+		$this->db->join('kec', 'kec.id_kec = produk.kecamatan');		
+		$this->db->join('foto_produk', 'foto_produk.id_produk = produk.id_produk');
+		$this->db->join('project', 'project.id_project = produk.id_project', 'left');	
+		$this->db->where('produk.id_produk', $id);
+		$this->db->group_by('produk.id_produk');
+		$db = $this->db->get();
+		return $db;
+	}
 }
 
 /* End of file Mproduk.php */

@@ -24,6 +24,13 @@ class Auth
       return true;
    }
 
+   function is_login_freelance(){
+      if($this->ci->session->userdata('id_freelance') == '' && $this->ci->session->userdata('email_freelance') == ''){
+         return false;
+      }
+      return true;
+   }
+
     function is_login_official(){
       if($this->ci->session->userdata('id_user') == '' && $this->ci->session->userdata('username') == '' && $this->ci->session->userdata('level') == ''){
          return false;

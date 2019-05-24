@@ -57,7 +57,19 @@ class Konf_premium extends CI_Controller {
 		$this->db->where('id_invoice', $this->input->post('noinvoice'));
 		$this->db->update('agen_premium', array('status' => 'AKTIF'));
 
-		 $this->session->set_flashdata('error', '
+		if ($get_agen->sub_agen > 0) {
+			$this->db->insert('poin_agen', array(
+				'id_agen' => $cek->id_agen,
+				'date' => date('Y-m-d'),
+				'remarks' => 'Rewards rekrut agen premium via afiliasi',
+				'poin' => '10'
+			));
+
+			$this->db->query("UPDATE agen SET poin = poin + '10' WHERE id_agen='".$cek->id_agen."'");
+
+		}
+
+		$this->session->set_flashdata('error', '
 	            	$(document).ready(function(){
 	            		toastr.succes("Agen telah menjadi Agen Premium", "Berhasil");
 	            		});

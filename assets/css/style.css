@@ -30,6 +30,22 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4{
 h1, .h1 {
     font-size: 52px;
 }
+@media(max-width: 480px){
+    h2, #demoFont_agen{
+    font-size: 20px;
+    margin-right: 40px;
+}
+h5, #demoFont1{
+    font-size: 8px;
+    margin-right: 0px;
+    margin-top : 0px;
+}
+.card-info{
+    font-weight: 5px;
+    font-size: 11px;
+     margin-top : 5px;
+}
+}
 h2, .h2{
     font-size: 36px;
 }
@@ -52,6 +68,10 @@ p{
     font-size: 15px;
     line-height: 1.6180em;
 }
+.pharga{
+    font-size: 14px;
+    line-height: 0.9em;
+}
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
     color: #999999;
     font-weight: 300;
@@ -70,9 +90,7 @@ p {
     margin:0;
 }
 a {
-    color: #d27e04;
     outline: 0;
-    font-weight: bold;
     -webkit-transition: all .8s ease;
     transition: all .8s ease;
 } 
@@ -163,10 +181,11 @@ input[type="search"]::-webkit-search-decoration {
 }
 .btn{
     border-width: 2px;
-    background-color: rgba(0,0,0,.0);
+    background-color: #ff6800;
     font-weight: 400;
     opacity: 0.8;
     padding: 8px 16px;
+    color: #ffff;
 }
 .btn-round{
     border-width: 1px;
@@ -192,8 +211,8 @@ input[type="search"]::-webkit-search-decoration {
     min-width: 100px;
 }
 .btn-default{
-    color: #777777;
-    border-color: #999999
+    color: #ffff;
+    border-color: #ff6800;
 } 
 .btn-info{
     color: #2CA8FF;
@@ -204,7 +223,7 @@ input[type="search"]::-webkit-search-decoration {
     border-color: #05AE0E;
 }
 .btn-warning{
-    color: #FDC600;
+    color: #ffff;
     border-color: #FDC600;
 }
 .btn-danger{
@@ -219,34 +238,34 @@ input[type="search"]::-webkit-search-decoration {
     padding: 10px 16px;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
-    color: #1D62F0;
-    border-color: #1D62F0;
-    background-color: rgba(0,0,0,.0);
+    color: #ffff;
+    border-color: #ff6800;
+    background-color: black;
 }
 .btn-info:hover, .btn-info:focus, .btn-info:active, .btn-info.active, .open .dropdown-toggle.btn-info {
     color: #109CFF;
     border-color: #109CFF;
-    background-color: rgba(0,0,0,.0);
+    background-color: black;
 }
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .open .dropdown-toggle.btn-success {
     color: #049F0C;
     border-color: #049F0C;
-    background-color: rgba(0,0,0,.0);
+    background-color:black;
 }
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active, .btn-warning.active, .open .dropdown-toggle.btn-warning {
-    color: #ED8D00;
-    border-color: #ED8D00;
-    background-color: rgba(0,0,0,.0);
+    color: #ffff;
+    border-color: #ff6800;
+    background-color: black;
 }
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active, .open .dropdown-toggle.btn-danger {
     color: #EE2D20;
     border-color: #EE2D20;
-    background-color: rgba(0,0,0,.0);
+    background-color: black;
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
     color: #666666;
     border-color: #888888;
-    background-color: rgba(0,0,0,.0);
+    background-color: black;
 }
 .btn:active, .btn.active {
     background-image: none;
@@ -277,36 +296,36 @@ input[type="search"]::-webkit-search-decoration {
     border-color: #FDC600;
 }
 .input-group-addon {
-    background-color: #FFFFFF;
+    background-color: #ff6800;
     border: 1px solid #E3E3E3;
     border-radius: 4px;
 }
 .btn-primary {
-    color: #FFF;
-    background-color: #FDC600;
+    color: #ffff;
+    background-color: #ff6800;
     border-color: #FDC600;
     border-radius: 1px;
     padding: 10px 20px;
     font-weight: 600;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active,.btn-primary:active:focus, .open > .dropdown-toggle.btn-primary {
-    color: #FDC600;
-    background-color: #313538;
-    border-color: #282829;
+    color: #ffff;
+    background-color: #ff6800;
+    border-color: #ff6800;
     font-weight: 600;
 }
 .btn-default {
     border-radius: 1px;
     padding: 10px 20px;
-    border: 1px solid #FDC600;
-    color: #000;
-    background-color: #FDC600;
+    border: 1px solid #ff6800;
+    color: #ffff;
+    background-color: #ff6800;
     border-color: #F0F0F0;
     font-weight: 600;
 }
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
-    color: #000;
-    background-color: #FDC600;
+    color: #ffff;
+    background-color: #ff6800;
     border-color: #F0F0F0;
     font-weight: 600;
 }
@@ -439,7 +458,7 @@ input[type="search"]::-webkit-search-decoration {
     border-left: 0 none;
 }
 .search-btn ,.toggle-btn{
-    background-color: #FDC600;
+    background-color: #ff6800;
     color: #333;
     font-size: 16px;
     border: 1px solid #EAE9E9;
@@ -577,7 +596,7 @@ label small{
     width: 100%;
 }
 .input-group-btn .btn{
-    background-color: #FFC500;
+    background-color: #ff6800;
     border-color: #FFC500;
     border-radius: 0px;
     height: 44px;
@@ -687,7 +706,6 @@ label small{
 
 
 .navbar-default .navbar-nav > li > a{
-    color: #929292;
     font-size: 16px;
     font-weight: 400;
     text-transform: capitalize;
@@ -705,7 +723,7 @@ label small{
 
 .navbar-default .navbar-nav > li > a.active:after{
 
-    background-color: #FDC600;
+    background-color: #fc8227;
     bottom: -24px;
     content: "";
     height: 5px;
@@ -715,7 +733,7 @@ label small{
     width: 100%;
 }
 .navbar-default .navbar-nav > li > a::after {
-    background-color: #FDC600;
+    background-color: #fc8227;
     bottom: -24px;
     content: "";
     height: 5px;
@@ -732,8 +750,13 @@ label small{
     margin-right: 20px
 }
 .navbar-brand {
-  padding: 10px;
-  margin-top:-10px
+  padding: 20px;
+  margin-top: -10px;
+}
+.navbar-brand>img{
+    max-width: 180px;
+    max-height: 180px;
+    margin-left: 50px;
 }
 .main-nav {
     padding-top: 10px;
@@ -829,9 +852,9 @@ label small{
     right: 0;
 }
 .yamm .dropdown-menu {   
-    background-color: #FFF; 
+    background-color: rgba(255,101,0,0.9);
     border: 0.3px solid rgba(227, 227, 227, 0.22);
-    border-radius: 0px;
+    border-radius: 10px;
     box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.176);
 }
 .ymm-sw .dropdown-menu {
@@ -845,9 +868,9 @@ label small{
     margin: inherit;
     list-style: outside none none;
     font-size: inherit;
-    background-color: #FFF;
+    background-color: rgba(255,101,0,0.9);
     border: 0px solid rgba(0, 0, 0, 0);
-    border-radius: 0px;
+    border-radius: 10px;
     box-shadow: 0px 0.5px 1px #CECECE;
     background-clip: padding-box;
 }
@@ -857,7 +880,7 @@ label small{
 }
 .navbar-default .ymm-sw .navbar-nav a::after {
     bottom: 5px;
-    background-color: #FFF;
+    background-color: white;
 }
 .yamm .ymm-sw  .dropdown-menu {
     left: auto;
@@ -868,7 +891,7 @@ label small{
     font-weight: 400;
     text-transform: uppercase;
     padding-bottom: 10px;
-    border-bottom: dotted 1px #555555;
+    border-bottom: dotted 1px rgba(255,102,0,0.7);
 }
 @media (max-width: 767px) {
     .navbar .yamm-content h5 {
@@ -1124,7 +1147,7 @@ page-header
     text-align: right;
 }
 .search-widget fieldset .largesearch-btn{
-    background-color: #FDC600;
+    background-color: #ff6800;
     font-size: 16px;
     border: 1px solid #EAE9E9;
     width: 100%;
@@ -1134,7 +1157,7 @@ page-header
     margin-top: 15px;
 }
 .form-inline input[type="submit"]:hover {
-    background: rgb(126, 126, 126) none repeat scroll 0% 0%;
+    background: #ff6800 none repeat scroll 0% 0%;
 }
 fieldset { 
     padding-bottom: 10px;
@@ -1516,6 +1539,7 @@ padding: 0 0 0.5em;
 /*mitra Developer*/
 .testimonial-mitra1{
     margin-top: 30px;
+    color: white;
 }
 .testimonial-area{
      margin-top: 30px;
@@ -1562,13 +1586,12 @@ padding: 0 0 0.5em;
 .testimonial-mitra .owl-theme .owl-controls .owl-page span{
     background: #FDC600
 }
-.client-text-mitra {
+.client-text-mitra hover {
     border-radius: 2px;
     text-align: center;
     padding: 10px 3px;
     margin: 15px;
     border: 1px solid #ECE9E9;
-    background-color: #F5F5F5;
 }
 @media (min-width: 992px){
 a.btn.btn-default{
@@ -1577,17 +1600,23 @@ a.btn.btn-default{
 }
 .client-text-mitra p {
     line-height: 25px;
-padding: 0 0 0.5em;
+    padding: 0 0 0.5em;
+    color: white;
 }
 .client-text-mitra h4 {
-    font-size: 15px
+    font-size: 14px;
+    color: white;
 }
 .client-text-mitra h4 i{
-    font-size: 13px
+    font-size: 13px;
+    color: white;
 }
 
 /*Tools CSS*/
 .p0{
+    padding: 10px;
+}
+.pfooter{
     padding: 0px;
 }
 .overflow{
@@ -1611,8 +1640,17 @@ padding: 0 0 0.5em;
     background: #FFF none repeat scroll 0% 0%;
     max-height: 400px;
     height: 400px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.box-two-mitra-page {
+    background: #FFF none repeat scroll 0% 0%;
+    max-height: 290px;
+    height: 290px;
     border: 1px solid #E6E6E6;
     box-sizing: border-box;
+    border-radius: 5px;
 
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
@@ -1640,7 +1678,7 @@ padding: 0 0 0.5em;
     padding-top: 25px;
 }
 .padding-top-40{
-    padding-top: 40px;
+    padding-top: 0px;
 }
 .padding-bottom-40{
     padding-bottom: 40px;
@@ -1692,7 +1730,7 @@ proerty-th
 }
 .proerty-th .proerty-item{
     background-color: #FFF; 
-    margin: 10px;
+    margin: 5px;
 }
 .proerty-th .proerty-item .item-thumb{
     position: relative;
@@ -1713,7 +1751,7 @@ proerty-th
     max-height: 225px;
 }
 .proerty-th .proerty-item  .item-entry{
-    padding: 8px;
+    padding: 0px;
 
 }
 .properties-page .proerty-th .proerty-price{
@@ -1722,10 +1760,11 @@ proerty-th
 }
 .proerty-th .proerty-item  .item-entry h5{
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 500;
     color: #9B9B9B;
-    letter-spacing: 0px;
+    letter-spacing: 0.5px;
     position: relative;
+    padding: 5px;
 }
 .proerty-th .proerty-item  .item-entry h6{
     text-transform: uppercase;
@@ -2525,13 +2564,15 @@ count-area
 .border-btn{
     border: 1.5px solid;
     background: transparent none repeat scroll 0% 0%;
-    border-radius: 0px;
+    border-radius: 5px;
     padding: 9px 25px;
     margin-top: 10px;
+    color: #ff6800;
 
 }
 .border-btn:hover,.border-btn:focus{
-
+    background-color: #ff6800 ;
+    color: #ffff;
 }
 .item-entry a {
     color: #000;
@@ -3095,7 +3136,7 @@ padding: 10px;
     position:absolute;
     left:50%;  
     top:50%;  
-    background-image:url(../../assets/img/juragan_rumah_logo.png);  
+    background-image:url(../../assets/img/juraganrumahlogo.png);  
     background-repeat:no-repeat;
     background-position:center;
     margin:-100px 0 0 -100px; 
@@ -3124,6 +3165,7 @@ padding: 10px;
     left: 0;
     z-index: 10;
   }
+
 .img-buyer {
     height: auto;
     max-width: 30%;
@@ -3132,6 +3174,18 @@ padding: 10px;
     border: 0px none;
     background-color: rgba(255,102,0,0.7);
     margin-top: -10px;
+}
+
+@media (max-width: 480px){
+.img-buyer {
+    height: auto;
+    max-width: 9%;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 0px none;
+    background-color: rgba(255,102,0,0.7);
+    margin-top: -10px;
+}
 }
 .client-buyer{
     border: 5px solid #fff;
@@ -3417,53 +3471,9 @@ padding: 10px;
 
 .card-info{
     font-weight: 5px;
-    font-size: 12px;
+    font-size: 11px;
 }
 
-/*manfaat Mitra*/
-.nilai_manfaat_mitra{
-    line-height: 1.2;
-    font-weight: 100;
-    letter-spacing: 0.5px;
-    background-image: none;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    border-bottom-width: 0px;
-    border-bottom-color: rgb(255, 255, 255);
-    background-repeat: repeat;
-    background-size: auto;
-    background-attachment: scroll;
-    color : #777777;
-}
-.item-list-left li {
-    padding: 20px 45px 60px 75px;
-    text-align: left;
-    box-shadow: 0 0 1px #FF0000, 0 0 1px #0000FF;
-    color: #77777;
-    border-color: solid
-    border-radius: 1%;
-    margin-bottom: 10px;
-    height :200px;
-    min-height :200px;
-    max-height :200px;
-}
-.item-list-left i {
-    position: absolute;
-    margin-top: 25px;
-}
-.item-list-left h6 {
-    margin-top: 30px;
-    text-align: left;
-    position: relative;
-    margin-left: 100px;
-}
-.item-list-left .harga{
-    font-size: 20px;
-}
-.item-list-left .gratis{
-    font-size: 30px;
-    color: green
-}
 
 /*pagination*/
 .pagination>li>a, .pagination>li>span {
@@ -3480,3 +3490,80 @@ ul>.pagination,span>.page-link{
     border-color:  : none;
     height: 52px;
 }
+
+
+/*blockquate*/
+.bubble-blockquote {
+    top: 80px;
+    bottom: 50px;
+    color: #ffff;
+    max-width: auto;
+    width: 100%;
+    padding: 40px 30px 30px;
+    margin: 0;
+    position: relative;
+    text-align: justify;
+}
+.bubble-source {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    text-align: center;
+    font-style: italic;
+    font-size: 95%;
+}
+#demoFont {
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 25px;
+letter-spacing: 0.6px;
+word-spacing: -1.6px;
+color: #777;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+#demoFont1 {
+font-family: "Trebuchet MS", Helvetica, sans-serif;
+font-size: 15px;
+letter-spacing: 0.6px;
+word-spacing: -1.6px;
+color: #777;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}
+.navbar-collapse {
+    padding-right: 75px;
+    padding-left: 15px;
+}
+
+@media (max-width: 480px){
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #777 !important;
+}
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+    color: #ffff;
+}
+
+.lSSlideOuter .lSPager.lSGallery img {
+    padding: 5px;
+    max-height: 50px;
+    min-height: 50px;
+    display: block;
+    height: auto;
+    max-width: 80px;
+    min-width: 80px;
+}
+
+/*mitra developer logo*/
+.devmitralogo{
+    margin-top: 100px;
+     margin-bottom : 55px;
+      background-image: linear-gradient(to right top, #4e1a07, #6a260f, #863413, #a44216, #c25119, #c14f22, #c04d2a, #bf4b31, #9a3c36, #723235, #4a282d, #231e1f);
+}

@@ -23,8 +23,7 @@ class Profil extends CI_Controller {
 			$data['content_premium'] = '<div class="alert alert-danger text-center" role="alert">
               <h3>Agen Free</h3>
             </div>
-            <button type="button" class="btn btn-success">Beralih ke Premium</button><p></p>
-            <a href="">Apa keuntungan menjadi akun Premium ?</a>';
+            <a href="'.base_url('agen/upgrade').'" class="btn btn-primary">Beralih ke Premium</a><p></p>';
 		}elseif($arrayprem->status == "PROSES"){
 			$data['content_premium'] = '<div class="alert alert-warning text-center" role="alert">
               <h3>Proses Pembayaran</h3>
@@ -47,7 +46,8 @@ class Profil extends CI_Controller {
 		}else{
 			$data['load'] = 'agen/profil_view';			
 		}
-		$data['url'] = base_url('agen/link/'.$cek2->id_agen);			
+		$url = base_url('agen/link/'.$cek2->id_agen);
+		$data['url'] = file_get_contents('http://tinyurl.com/api-create.php?url='."$url");			
 		$data['row'] = $cek2;
 		$data['row_view'] = $cek;
 		$data['prov'] = $this->db->get('prov')->result();		
@@ -91,6 +91,19 @@ class Profil extends CI_Controller {
 		$id = $this->input->post('id');
 		$data = $this->db->get_where('kabkot', array('id_prov' => $id))->result();
 		echo json_encode($data);
+	}
+
+	public function cek()
+	{
+		
+		$get = $this->db->get('agen_premium')->result();
+		$jml =  count($get) - 1;
+		$indeks = rand(0,$jml);
+		
+		
+		echo $get[$indeks]->id_agen;
+		// echo get_cookie('user_agen');
+		
 	}
 
 }

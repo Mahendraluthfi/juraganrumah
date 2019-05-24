@@ -587,9 +587,9 @@
                var komisi_agen = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.komisi_agen);
                var komisi_manajemen = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.komisi_manajemen);
                var komisi_promosi = new Intl.NumberFormat('ja-JP', { style: 'decimal' }).format(data.komisi_promosi);
-               $('[name="komisi_agen"]').val('+- ('+komisi_agen+')');
-               $('[name="komisi_manajemen"]').val('+- ('+komisi_manajemen+')');
-               $('[name="komisi_promosi"]').val('+- ('+komisi_promosi+')');
+               $('[name="komisi_agen"]').val('Rp. '+komisi_agen);
+               $('[name="komisi_manajemen"]').val('Rp. '+komisi_manajemen);
+               $('[name="komisi_promosi"]').val('Rp. '+komisi_promosi);
                $('#closing_modal').modal('show');
 
                console.log(data);
